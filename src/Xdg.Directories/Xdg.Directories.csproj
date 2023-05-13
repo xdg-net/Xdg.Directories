@@ -19,8 +19,7 @@
 
 	<PropertyGroup Label="NuGet Packaging">
 		<Title>Xdg.Directories.Net</Title>
-		<Description>.NET implementation of the XDG Base Directory Specification and user
-			directories</Description>
+		<Description>.NET implementation of the XDG Base Directory Specification and user directories</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
