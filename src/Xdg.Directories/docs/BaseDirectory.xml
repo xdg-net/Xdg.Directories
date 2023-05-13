@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<docs>
+	<BaseDirectory>
+		<summary>
+			The XDG Base Directory specification is a standard created by freedesktop.org that standardizes the location of storing application files.
+		</summary>
+		<remarks>
+			<para>
+				<br />
+				This allows users to have less clutter in their home directories, and allows programmers to not have to hard-code directories.
+			</para>
+			All operating systems that are supported by .NET (Windows, macOS, Linux, FreeBSD at the time of writing) are supported.
+			<br />
+			For all base directory files, the directories are resolved as follows:
+			<list type="number">
+				<item>
+					<term>
+						The respective <c>XDG_*</c> enivronment variable
+					</term>
+					<description>will always be used if specified</description>
+				</item>
+				<item>
+					<list type="table">
+						<item>Operating systemd dependent fallback:</item>
+						<item>
+							<term>Windows</term>
+							<description>
+								Use <see href="https://learn.microsoft.com/en-us/windows/win32/shell/known-folders">Known Folders</see>.
+							</description>
+						</item>
+						<item>
+							<term>macOS</term>
+							<description>
+								Follow the <see href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW1">Apple documentation</see> on application-specific files.
+							</description>
+						</item>
+						<item>
+							<term>Linux/FreeBSD</term>
+							<description>
+								Follow the <see href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory</see> specification.
+							</description>
+						</item>
+					</list>
+				</item>
+			</list>
+		</remarks>
+	</BaseDirectory>
+	<DataHome>
+		<summary>
+			Base directory for data files.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>data</strong> files should be written.
+		</value>
+		<remarks>
+			If <c>XDG_DATA_HOME</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%LOCALAPPDATA%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Application Support</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/.local/share</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</DataHome>
+	<ConfigHome>
+		<summary>
+			Base directory for configuration files.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>configuration</strong> files should be written.
+		</value>
+		<remarks>
+			If <c>XDG_CONFIG_HOME</c> is set, the directory specified.
+			<list type = "table" >
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%LOCALAPPDATA%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Application Support</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/.config</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</ConfigHome>
+	<StateHome>
+		<summary>
+			Base directory for state data.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>state data</strong> should be written.
+		</value>
+		<remarks>
+			If <c>XDG_STATE_HOME</c> is set, the directory specified.
+			<list type = "table" >
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%LOCALAPPDATA%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Application Support</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/.local/state</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</StateHome>
+	<BinHome>
+		<summary>
+			Base directory for executable files.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>executable</strong> files should be written.
+		</value>
+		<remarks>
+			If <c>XDG_BIN_HOME</c> is set, the directory specified.
+			<list type = "table" >
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>null</c>
+						<br />
+						Windows does not support this by default.
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>null</c>
+						<br />
+						macOS does not support this by default.
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/.local/bin</c>
+					</description>
+				</item>
+			</list>
+			NOTE: This is not an XDG standard but a <em>de facto</em> standard.
+		</remarks>
+	</BinHome>
+	<DataDirs>
+		<summary>
+			A list of directories to search for data files.
+		</summary>
+		<value>
+			A set of preference-ordered base directories to which data files should be searched.
+		</value>
+		<remarks>
+			If <c>XDG_DATA_DIRS</c> is set, a list of the directories specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%APPADATA%</c>,
+						<c>%ProgramData%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>/Library/Application Support</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>/usr/local/share/</c>,
+						<c>/usr/share/</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</DataDirs>
+	<ConfigDirs>
+		<summary>
+			A list of directories to look for configuration files.
+		</summary>
+		<value>
+			A set of preference-ordered base directories to which configuration files should be searched.
+		</value>
+		<remarks>
+			If <c>XDG_CONFIG_DIRS</c> is set, a list of the directories specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%ProgramData%</c>,
+						<c>%APPADATA%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>~/Library/Preferences</c>,
+						<c>/Library/Application Support</c>,
+						<c>/Library/Preferences</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>/etc/xdg</c>
+					</description>
+				</item>
+			</list>
+			This is typically not used, for most use cases <see cref="ConfigHome">ConfigHome</see> should be used instead.
+		</remarks>
+	</ConfigDirs>
+	<CacheHome>
+		<summary>
+			Base directory for non-essential data.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>non-essential</strong> data should be written.
+		</value>
+		<remarks>
+			If <c>XDG_CACHE_HOME</c> is set, the directory specified.
+			<list type = "table" >
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%LOCALAPPDATA%\cache</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Caches</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/.cache</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</CacheHome>
+	<RuntimeDir>
+		<summary>
+			Base directory for runtime-specific files.
+		</summary>
+		<value>
+			A single base directory relative to which user-specifc <strong>runtime files</strong> should be written.
+		</value>
+		<remarks>
+			If <c>XDG_RUNTIME_DIR</c> is set, the directory specified.
+			<list type = "table" >
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%LOCALAPPDATA%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Application Support</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>/run/user/$UID</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</RuntimeDir>
+</docs>

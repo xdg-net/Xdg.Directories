@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<docs>
+	<UserDirectory>
+		<summary>
+			Well-known user directories like desktop, documents and music folders.
+		</summary>
+	</UserDirectory>
+	<DesktopDir>
+		<summary>
+			Desktop folder
+		</summary>
+		<value>
+			The user's desktop directory.
+		</value>
+		<remarks>
+			If <c>XDG_DESKTOP_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Desktop</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Desktop</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Desktop</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</DesktopDir>
+	<DownloadDir>
+		<summary>
+			Download folder
+		</summary>
+		<value>
+			A location to store downloaded files.
+		</value>
+		<remarks>
+			If <c>XDG_DOWNLOAD_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>null</c>
+						<br />
+						Windows does not specify the Downloads folder in its magic folder list.
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Downloads</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Downloads</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</DownloadDir>
+	<DocumentsDir>
+		<summary>
+			Document folder
+		</summary>
+		<value>
+			A location to store documents files.
+		</value>
+		<remarks>
+			If <c>XDG_DOCUMENTS_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Documents</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Documents</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Documents</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</DocumentsDir>
+	<MusicDir>
+		<summary>
+			Music folder
+		</summary>
+		<value>
+			A location to store music files.
+		</value>
+		<remarks>
+			If <c>XDG_MUSIC_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Music</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Music</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Music</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</MusicDir>
+	<PicturesDir>
+		<summary>
+			Image folder
+		</summary>
+		<value>
+			A location to store image files.
+		</value>
+		<remarks>
+			If <c>XDG_PICTURES_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Pictures</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Pictures</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Pictures</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</PicturesDir>
+	<VideosDir>
+		<summary>
+			Video folder
+		</summary>
+		<value>
+			A location to store video files.
+		</value>
+		<remarks>
+			If <c>XDG_VIDEOS_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Videos</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Movies</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Videos</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</VideosDir>
+	<TemplatesDir>
+		<summary>
+			Template folder
+		</summary>
+		<value>
+			A location to store template files.
+		</value>
+		<remarks>
+			If <c>XDG_TEMPLATES_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Templates</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Templates</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Templatess</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</TemplatesDir>
+	<PublicDir>
+		<summary>
+			Public folder
+		</summary>
+		<value>
+			A location to store public / shared files.
+		</value>
+		<remarks>
+			If <c>XDG_PUBLICSHARE_DIR</c> is set, the directory specified.
+			<list type="table">
+				Else,
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%PUBLIC%</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Public</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$HOME/Public</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</PublicDir>
+</docs>

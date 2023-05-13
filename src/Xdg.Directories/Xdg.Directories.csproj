@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Condition="'$(CI)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Label="SDK Stuff">
+		<TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<IsPackable>true</IsPackable>
+		<IsTrimmable>true</IsTrimmable>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<AnalysisLevel>latest-all</AnalysisLevel>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+		<RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
+	</PropertyGroup>
+
+	<PropertyGroup Label="NuGet Packaging">
+		<Title>Xdg.Directories.Net</Title>
+		<Description>.NET implementation of the XDG Base Directory Specification and user
+			directories</Description>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageTags>xdg;base-directories;base-directory;xdg-base-directory;</PackageTags>
+		<RepositoryType>git</RepositoryType>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+		<MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
+	</PropertyGroup>
+
+	<PropertyGroup Label="NativeAOT">
+		<PublishAot>True</PublishAot>
+		<StripSymbols>True</StripSymbols>
+		<TrimMode>Link</TrimMode>
+
+		<RootAllApplicationAssemblies>false</RootAllApplicationAssemblies>
+		<IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
+		<IlcDisableUnhandledExceptionExperience>true</IlcDisableUnhandledExceptionExperience>
+		<IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+		<IlcTrimMetadata>true</IlcTrimMetadata>
+		<IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+		<IlcOptimizationPreference>Size</IlcOptimizationPreference>
+
+		<!-- The holy grail of size reduction - would cut the library's size in half, but doesn't
+		work -->
+		<!--<IlcDisableReflection>true</IlcDisableReflection>-->
+	</PropertyGroup>
+
+	<PropertyGroup
+		Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup
+		Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup
+		Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup
+		Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup Label="Extra files">
+		<None Include="..\..\LICENSE" Visible="false">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+
+		<!--FFI-->
+		<None Remove="FFI\include\xdg.h" />
+		<None Include="FFI\include\xdg.h">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Link>include\%(Filename)%(Extension)</Link>
+		</None>
+		<None Remove="FFI\xdg.pc" />
+		<None Include="FFI\xdg.pc">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Link>%(Filename)%(Extension)</Link>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup Label="NuGet Packages">
+		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="1.1.1" PrivateAssets="All" />
+		<SourceLinkGiteaHost Include="git.froth.zone" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+
+		<PackageReference Include="MinVer" Version="4.3.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Xdg.Testing" />
+	</ItemGroup>
+</Project>

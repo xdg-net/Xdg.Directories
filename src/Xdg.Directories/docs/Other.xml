@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<docs>
+	<Other>
+		<summary>
+			Other useful directories that aren't specified by XDG.
+		</summary>
+	</Other>
+	<Home>
+		<summary>
+			Home Directory
+		</summary>
+		<value>
+			The current user's home directory.
+		</value>
+		<remarks>
+			<list type="table">
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%USERPROFILE%</c>
+					</description>
+				</item>
+				<item>
+					<term>Unix (macOS/Linux/FreeBSD)</term>
+					<description>
+						<c>$HOME</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</Home>
+	<Applications>
+		<summary>
+			Application directories
+		</summary>
+		<value>
+			Common application directories.
+		</value>
+		<remarks>
+			<list type="table">
+				<item>
+					<term>Windows</term>
+					<description>
+						The <c>Programs</c> Special Folder,
+						the <c>Common Programs</c> Special Folder
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>/Applications</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$XDG_DATA_HOME/applications</c>,
+						<c>$HOME/.local/share/applications</c>,
+						<c>/usr/local/share/applications</c>,
+						<c>/usr/share/applications</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</Applications>
+	<Fonts>
+		<summary>
+			Font directories
+		</summary>
+		<value>
+			Common font directories.
+		</value>
+		<remarks>
+			<list type="table">
+				<item>
+					<term>Windows</term>
+					<description>
+						<c>%SYSTEMROOT%\Fonts</c>,
+						<c>%LOCALAPPDATA%\Microsoft\Windows\Fonts</c>
+					</description>
+				</item>
+				<item>
+					<term>macOS</term>
+					<description>
+						<c>$HOME/Library/Fonts</c>,
+						<c>/Library/Fonts</c>,
+						<c>/System/Library/Fonts</c>,
+						<c>/Network/Library/Fonts</c>
+					</description>
+				</item>
+				<item>
+					<term>Linux/FreeBSD</term>
+					<description>
+						<c>$XDG_DATA_HOME/fonts</c>,
+						<c>$HOME/.fonts</c>,
+						<c>$HOME/.local/share/fonts</c>,
+						<c>/usr/local/share/fonts</c>
+						<c>/usr/share/fonts</c>
+					</description>
+				</item>
+			</list>
+		</remarks>
+	</Fonts>
+</docs>
