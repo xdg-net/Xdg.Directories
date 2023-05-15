@@ -1,0 +1,25 @@
+kind: pipeline
+type: docker
+name: Public Preview Builds
+trigger:
+  branch:
+  - master
+  event:
+  - push
+
+steps:
+- name: Build for Release
+  image: mcr.microsoft.com/dotnet/sdk:7.0
+  commands:
+  - dotnet build -c Release -p:SymbolPackageFormat=symbols.nupkg -p:ContinuousIntegrationBuild=true
+  - dotnet build -c Release -p:ContinuousIntegrationBuild=true
+- name: Publish
+  image: mcr.microsoft.com/dotnet/sdk:7.0
+  environment:
+    API_KEY:
+      from_secret: API_KEY
+    NUGET_REPO: https://git.froth.zone/api/packages/sam/nuget/index.json
+  commands:
+  - cd src/Xdg.Directories
+  - dotnet nuget push bin/Release/\*.symbols.nupkg --api-key $API_KEY --source $NUGET_REPO
+  - dotnet nuget push bin/Release/\*.snupkg --api-key $API_KEY --source $NUGET_REPO
