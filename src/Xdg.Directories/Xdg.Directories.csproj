@@ -27,7 +27,7 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageTags>xdg;base-directories;base-directory;xdg-base-directory;</PackageTags>
+		<PackageTags>xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
 		<RepositoryType>git</RepositoryType>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 
