@@ -62,7 +62,7 @@ dotnet add package Xdg.Directories
 ```
 
 ### Native Library
-TODO: add documentation and examples for making and consuming the native library
+[View the README here](./src/Xdg.Directories.FFI/README.md)
 
 ## License
 [MIT](./LICENSE)

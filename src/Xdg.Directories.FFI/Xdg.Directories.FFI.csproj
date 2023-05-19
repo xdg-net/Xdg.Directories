@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>libxdg</AssemblyName>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup Label="NativeAOT">
+		<PublishAot>True</PublishAot>
+		<StripSymbols>True</StripSymbols>
+		<TrimMode>Link</TrimMode>
+
+		<RootAllApplicationAssemblies>false</RootAllApplicationAssemblies>
+		<IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
+		<IlcDisableUnhandledExceptionExperience>true</IlcDisableUnhandledExceptionExperience>
+		<IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+		<IlcTrimMetadata>true</IlcTrimMetadata>
+		<IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+		<IlcOptimizationPreference>Size</IlcOptimizationPreference>
+
+		<!-- The holy grail of size reduction - would cut the library's size in half, but doesn't
+		work -->
+		<!--<IlcDisableReflection>true</IlcDisableReflection>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Xdg.Directories\Xdg.Directories.csproj" />
+
+		<None Remove="include\xdg.h" />
+		<None Include="include\xdg.h">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Link>include\%(Filename)%(Extension)</Link>
+		</None>
+
+		<None Remove="xdg.pc" />
+		<None Include="xdg.pc">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<Link>%(Filename)%(Extension)</Link>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Xdg.Testing" />
+	</ItemGroup>
+
+</Project>

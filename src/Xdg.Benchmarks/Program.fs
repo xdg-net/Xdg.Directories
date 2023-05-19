@@ -1,4 +1,4 @@
-﻿open BenchmarkDotNet.Attributes
+open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
 open BenchmarkDotNet.Jobs
 open Xdg.Directories;

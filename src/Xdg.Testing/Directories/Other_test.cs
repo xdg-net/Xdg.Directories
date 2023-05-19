@@ -1,4 +1,6 @@
-﻿namespace Xdg.Directories.Testing.Directories;
+using Xdg.Directories;
+
+namespace Xdg.Testing.Directories;
 
 [TestClass]
 public class Other_Test

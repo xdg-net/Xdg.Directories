@@ -1,4 +1,4 @@
-﻿namespace Xdg.Directories;
+namespace Xdg.Directories;
 
 /// <include file='docs/BaseDirectory.xml' path='docs/BaseDirectory'/>
 public static class BaseDirectory

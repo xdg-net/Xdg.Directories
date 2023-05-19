@@ -1,6 +1,6 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 
-namespace Xdg.Directories.Testing.Directories;
+namespace Xdg.Testing.Directories;
 internal static class Helper
 {
     public static void Prepare(string Env, string? EnvValue, string OS)
