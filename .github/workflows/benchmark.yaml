@@ -1,0 +1,49 @@
+name: Benchmark
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  deployments: write
+
+jobs:
+  benchmark:
+    name: Run Benchmarks
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            4.8
+            7.0.x
+      - name: Restore Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+
+      - name: Run benchmarks
+        run: dotnet run -c Release --framework net7.0 --project ./src/Xdg.Benchmarks/Xdg.Benchmarks.fsproj --exporters json --filter '*'
+      - name: Store benchmark result
+        uses: rhysd/github-action-benchmark@v1
+        with:
+          name: Benchmark.Net Benchmark
+          tool: 'benchmarkdotnet'
+          output-file-path: BenchmarkDotNet.Artifacts/results/Program.Benchmarks-report-full-compressed.json
+          gh-repository: github.com/xdg-net/xdg-net.github.io
+          benchmark-data-dir-path: benchmarks
+          github-token: ${{ secrets.GH_PAGES_TOKEN }}
+          auto-push: true
+          # Show alert with commit comment on detecting possible performance regression
+          alert-threshold: '200%'
+          comment-on-alert: true
+          summary-always: true
+          fail-on-alert: true
+          alert-comment-cc-users: '@SamTherapy'

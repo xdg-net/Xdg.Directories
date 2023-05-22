@@ -4,10 +4,12 @@ open BenchmarkDotNet.Jobs
 open Xdg.Directories;
 
 [<MemoryDiagnoser>]
-[<SimpleJob(RuntimeMoniker.Net462)>]
 //[<SimpleJob(RuntimeMoniker.Mono)>]
+[<SimpleJob(RuntimeMoniker.Net462)>]
 [<SimpleJob(RuntimeMoniker.Net70, baseline = true)>]
 [<SimpleJob(RuntimeMoniker.NativeAot70)>]
+[<JsonExporterAttribute.Full>]
+[<JsonExporterAttribute.FullCompressed>]
 type Benchmarks() =
     // Base Directory
     [<Benchmark>]
