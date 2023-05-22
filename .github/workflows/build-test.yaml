@@ -57,4 +57,4 @@ jobs:
       - name: Build the package
         run: dotnet build --configuration Release --no-restore -p:SymbolPackageFormat=symbols.nupkg
       - name: Publish the package
-        run: dotnet nuget push src/Xdg.Directories/bin/Release/*.symbols.nupkg -s https://nuget.pkg.github.com/SamTherapy/index.json -k ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget push src/Xdg.Directories/bin/Release/*.symbols.nupkg -s https://nuget.pkg.github.com/xdg-net/index.json -k ${{ secrets.GITHUB_TOKEN }}

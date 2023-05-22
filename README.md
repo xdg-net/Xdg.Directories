@@ -1,8 +1,8 @@
 # Xdg
 ----
 [![Drone Build Status](https://ci.git.froth.zone/api/badges/sam/Xdg.Net/status.svg)](https://ci.git.froth.zone/sam/Xdg.Net)
-[![GitHub Actions Build](https://github.com/SamTherapy/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/SamTherapy/Xdg.Net/actions/workflows/build-test.yaml)
-[![GitHub Actions CodeQL](https://github.com/SamTherapy/Xdg.Net/actions/workflows/codeql.yml/badge.svg)](https://github.com/SamTherapy/Xdg.Net/actions/workflows/codeql.yml)
+[![GitHub Actions Build](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
+[![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yml)
 ![Nuget](https://img.shields.io/nuget/v/Xdg.Net)
 
 
@@ -55,7 +55,7 @@ User directories on Windows use [Known Folders](https://learn.microsoft.com/en-u
 </details>
 
 ## Packaging
-Stable releases will be uploaded to nuget.org, and preview releases are uploaded to both [GitHub packages](https://github.com/SamTherapy/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/sam/-/packages/nuget/xdg.directories) (no login required).
+Stable releases will be uploaded to nuget.org, and preview releases are uploaded to both [GitHub packages](https://github.com/xdg-net/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/sam/-/packages/nuget/xdg.directories) (no login required).
 
 ```pwsh
 dotnet add package Xdg.Directories
