@@ -2,7 +2,7 @@
 ----
 [![Drone Build Status](https://ci.git.froth.zone/api/badges/sam/Xdg.Net/status.svg)](https://ci.git.froth.zone/sam/Xdg.Net)
 [![GitHub Actions Build](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
-[![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yml)
+[![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml)
 ![Nuget](https://img.shields.io/nuget/v/Xdg.Net)
 
 
