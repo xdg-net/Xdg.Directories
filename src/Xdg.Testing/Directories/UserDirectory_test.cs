@@ -120,7 +120,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("PublicDir")]
         public void PublicDir_MacOS_Default()
         {
-            Helper.Prepare("XDG_PUBLIC_DIR", null, "MacOS");
+            Helper.Prepare("XDG_PUBLICSHARE_DIR", null, "MacOS");
             Assert.AreEqual($"{Other.Home}/Public", UserDirectory.PublicDir);
         }
     }
@@ -180,7 +180,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("PublicDir")]
         public void PublicDir_Linux_Default()
         {
-            Helper.Prepare("XDG_PUBLIC_DIR", null, "Linux");
+            Helper.Prepare("XDG_PUBLICSHARE_DIR", null, "Linux");
             Assert.AreEqual($"{Other.Home}/Public", UserDirectory.PublicDir);
         }
     }

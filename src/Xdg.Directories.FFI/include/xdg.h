@@ -46,7 +46,7 @@ xdg_directory xdg_videos_dir(void);
 
 xdg_directory xdg_templates_dir(void);
 
-xdg_directory xdg_public_dir(void);
+xdg_directory xdg_publicshare_dir(void);
 
 // Frees the directory object.
 void xdg_free(xdg_directory);

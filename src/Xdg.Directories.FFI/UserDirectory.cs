@@ -96,7 +96,7 @@ internal static partial class Exports
         }
     }
 
-    [UnmanagedCallersOnly(EntryPoint = "xdg_public_dir")]
+    [UnmanagedCallersOnly(EntryPoint = "xdg_publicshare_dir")]
     public static IntPtr Public()
     {
         try
