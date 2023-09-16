@@ -3,7 +3,7 @@
 [![Drone Build Status](https://ci.git.froth.zone/api/badges/sam/Xdg.Net/status.svg)](https://ci.git.froth.zone/sam/Xdg.Net)
 [![GitHub Actions Build](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
 [![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml)
-![Nuget](https://img.shields.io/nuget/v/Xdg.Net)
+[![Nuget](https://img.shields.io/nuget/v/Xdg.Directories)](https://www.nuget.org/packages/Xdg.Directories/)
 
 
 A .NET (and an experimental C-compatible FFI) implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories.
