@@ -21,6 +21,8 @@
 		<Title>Xdg.Directories.Net</Title>
 		<Description>.NET implementation of the XDG Base Directory Specification and user directories</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Authors>$(AssemblyName) Authors</Authors>
+		<PackageProjectUrl>https://github.com/xdg-net/Xdg.Net</PackageProjectUrl>
 
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
