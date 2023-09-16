@@ -85,7 +85,7 @@ jobs:
       - name: Build the package
         run: dotnet build --configuration Release --no-restore -p:SymbolPackageFormat=snupkg
       - name: Publish the package
-        run:
+        run: |
           dotnet nuget push src/Xdg.Directories/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_KEY }}
           dotnet nuget push src/Xdg.Directories/bin/Release/*.snupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_KEY }}
         env:
