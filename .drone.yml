@@ -6,8 +6,13 @@ trigger:
   - master
   event:
   - push
+  - tag
 
 steps:
+- name: Fetch Tags
+  image: alpine/git
+  commands:
+  - git fetch --tags
 - name: Build for Release
   image: mcr.microsoft.com/dotnet/sdk:7.0
   commands:

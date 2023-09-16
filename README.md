@@ -5,8 +5,7 @@
 [![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml)
 [![Nuget](https://img.shields.io/nuget/v/Xdg.Directories)](https://www.nuget.org/packages/Xdg.Directories/)
 
-
-A .NET (and an experimental C-compatible FFI) implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories.
+A ***small***, ***fast*** and ***portable*** .NET implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories for Windows, MacOS and Linux/FreeBSD.
 
 ## Default Locations
 
@@ -55,7 +54,7 @@ User directories on Windows use [Known Folders](https://learn.microsoft.com/en-u
 </details>
 
 ## Packaging
-Stable releases will be uploaded to nuget.org, and preview releases are uploaded to both [GitHub packages](https://github.com/xdg-net/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/sam/-/packages/nuget/xdg.directories) (no login required).
+Stable releases are available on [NuGet](https://www.nuget.org/packages/Xdg.Directories/), and preview releases are uploaded to both [GitHub packages](https://github.com/xdg-net/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/sam/-/packages/nuget/xdg.directories) (no login required).
 
 ```pwsh
 dotnet add package Xdg.Directories
