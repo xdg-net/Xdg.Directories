@@ -122,7 +122,7 @@ public class BaseDirectory_Test
         public void BinHome_MacOS_Default()
         {
             Helper.Prepare("XDG_BIN_HOME", null, "MacOS");
-            Assert.IsNull(BaseDirectory.BinHome);
+            Assert.AreEqual(string.Empty, BaseDirectory.BinHome);
         }
 
         [TestMethod, TestCategory("CacheHome")]
