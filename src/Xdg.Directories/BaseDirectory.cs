@@ -7,116 +7,142 @@ public static class BaseDirectory
     public static string DataHome
     {
         get =>
-            Helpers.OS(
-                "XDG_DATA_HOME",
-                GetEnvironmentVariable("LOCALAPPDATA")
-                    ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                $"{Other.Home}/Library/Application Support",
-                $"{Other.Home}/.local/share"
-            )!;
+            GetEnvironmentVariable("XDG_DATA_HOME")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => GetEnvironmentVariable("LOCALAPPDATA")
+                        ?? GetFolderPath(SpecialFolder.LocalApplicationData),
+                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "share"),
+                _ => string.Empty
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/ConfigHome'/>
     public static string ConfigHome
     {
         get =>
-            Helpers.OS(
-                "XDG_CONFIG_HOME",
-                GetEnvironmentVariable("LOCALAPPDATA")
-                    ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                $"{Other.Home}/Library/Application Support",
-                $"{Other.Home}/.config"
-            )!;
+            GetEnvironmentVariable("XDG_CONFIG_HOME")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => GetEnvironmentVariable("LOCALAPPDATA")
+                        ?? GetFolderPath(SpecialFolder.LocalApplicationData),
+                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".config"),
+                _ => string.Empty
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/StateHome'/>
     public static string StateHome
     {
         get =>
-            Helpers.OS(
-                "XDG_STATE_HOME",
-                GetEnvironmentVariable("LOCALAPPDATA")
-                    ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                $"{Other.Home}/Library/Application Support",
-                $"{Other.Home}/.local/state"
-            )!;
+            GetEnvironmentVariable("XDG_STATE_HOME")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => GetEnvironmentVariable("LOCALAPPDATA")
+                        ?? GetFolderPath(SpecialFolder.LocalApplicationData),
+                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "state"),
+                _ => string.Empty
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/BinHome'/>
-    public static string? BinHome
+    public static string BinHome
     {
-        get => Helpers.OS("XDG_BIN_HOME", null, null, $"{Other.Home}/.local/bin")!;
+        get =>
+            GetEnvironmentVariable("XDG_BIN_HOME")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows => string.Empty,
+                Helpers.OS.MacOS => string.Empty,
+                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "bin"),
+                _ => string.Empty
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/DataDirs'/>
     public static IList<string> DataDirs
     {
         get =>
-            Helpers.OS(
-                "XDG_DATA_DIRS",
-                new string[]
-                {
-                    Helpers.AorB(
-                        GetFolderPath(SpecialFolder.ApplicationData),
-                        GetEnvironmentVariable("APPDATA")!
-                    ),
-                    GetEnvironmentVariable("PROGRAMDATA")
-                        ?? GetFolderPath(SpecialFolder.CommonApplicationData)
-                },
-                new string[] { "/Library/Application Support" },
-                new string[] { "/usr/local/share", "/usr/share" }
-            )!;
+            GetEnvironmentVariable("XDG_DATA_DIRS")?.Split(':')
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => new string[]
+                    {
+                        GetEnvironmentVariable("APPDATA")
+                            ?? GetFolderPath(SpecialFolder.ApplicationData),
+                        GetEnvironmentVariable("PROGRAMDATA")
+                            ?? GetFolderPath(SpecialFolder.CommonApplicationData)
+                    },
+                Helpers.OS.MacOS => new string[] { "/Library/Application Support" },
+                Helpers.OS.UnixLike => new string[] {"/usr/local/share", "/usr/share"},
+                _ => Array.Empty<string>()
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/ConfigDirs'/>
     public static IList<string> ConfigDirs
     {
         get =>
-            Helpers.OS(
-                "XDG_CONFIG_DIRS",
-                new string[]
-                {
-                    GetEnvironmentVariable("PROGRAMDATA")
-                        ?? GetFolderPath(SpecialFolder.CommonApplicationData),
-                    Helpers.AorB(
-                        GetFolderPath(SpecialFolder.ApplicationData),
-                        GetEnvironmentVariable("APPDATA")!
-                    )
-                },
-                new string[]
-                {
-                    $"{Other.Home}/Library/Preferences",
-                    "/Library/Application Support",
-                    "/Library/Preferences"
-                },
-                new string[] { "/etc/xdg" }
-            )!;
+            GetEnvironmentVariable("XDG_CONFIG_DIRS")?.Split(':')
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => new string[]
+                    {
+                        GetEnvironmentVariable("ProgramData")
+                            ?? GetFolderPath(SpecialFolder.CommonApplicationData),
+                        GetEnvironmentVariable("APPDATA")
+                            ?? GetFolderPath(SpecialFolder.ApplicationData)
+                    },
+                Helpers.OS.MacOS
+                    => new string[]
+                    {
+                        Path.Combine(Other.Home, "Library", "Preferences"),
+                        "/Library/Application Support",
+                        "/Library/Preferences"
+                    },
+                Helpers.OS.UnixLike => new string[] { "/etc/xdg" },
+                _ => Array.Empty<string>()
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/CacheHome'/>
     public static string CacheHome
     {
         get =>
-            Helpers.OS(
-                "XDG_CACHE_HOME",
-                GetEnvironmentVariable("LOCALAPPDATA") is not null
-                    ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\cache"
-                    : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\cache",
-                $"{Other.Home}/Library/Caches",
-                $"{Other.Home}/.cache"
-            )!;
+            GetEnvironmentVariable("XDG_CACHE_HOME")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => GetEnvironmentVariable("LOCALAPPDATA") is not null
+                        ? Path.Combine(GetEnvironmentVariable("LOCALAPPDATA")!, "cache")
+                        : Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "cache"),
+                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Caches"),
+                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".cache"),
+                _ => string.Empty
+            };
     }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/RuntimeDir'/>
     public static string RuntimeDir
     {
         get =>
-            Helpers.OS(
-                "XDG_RUNTIME_DIR",
-                GetEnvironmentVariable("LOCALAPPDATA")
-                    ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                $"{Other.Home}/Library/Application Support",
-                $"/run/user/{GetEnvironmentVariable("UID")}"
-            )!;
+            GetEnvironmentVariable("XDG_RUNTIME_DIR")
+            ?? Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => GetEnvironmentVariable("LOCALAPPDATA")
+                        ?? GetFolderPath(SpecialFolder.LocalApplicationData),
+                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                Helpers.OS.UnixLike => Path.Combine("/run", "user", GetEnvironmentVariable("UID") ?? "0"),
+                _ => string.Empty
+            };
     }
 }

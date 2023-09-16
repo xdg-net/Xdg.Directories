@@ -155,7 +155,7 @@
 				<item>
 					<term>Windows</term>
 					<description>
-						<c>null</c>
+						<c>""</c>
 						<br />
 						Windows does not support this by default.
 					</description>
@@ -163,7 +163,7 @@
 				<item>
 					<term>macOS</term>
 					<description>
-						<c>null</c>
+						<c>""</c>
 						<br />
 						macOS does not support this by default.
 					</description>

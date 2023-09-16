@@ -26,14 +26,28 @@ public class Other_Test
         public void Applications_Windows_Default()
         {
             Helper.Prepare("DISCARD", null, "Windows");
-            CollectionAssert.AreEquivalent(new string[] { GetFolderPath(SpecialFolder.Programs), GetFolderPath(SpecialFolder.CommonPrograms) }, (System.Collections.ICollection)Other.Applications);
+            CollectionAssert.AreEquivalent(
+                new string[]
+                {
+                    GetFolderPath(SpecialFolder.Programs),
+                    GetFolderPath(SpecialFolder.CommonPrograms)
+                },
+                (System.Collections.ICollection)Other.Applications
+            );
         }
 
         [TestMethod, TestCategory("Fonts")]
         public void Fonts_Windows_Default()
         {
             Helper.Prepare("DISCARD", null, "Windows");
-            CollectionAssert.AreEquivalent(new string[] { GetFolderPath(SpecialFolder.Fonts), $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts" }, (System.Collections.ICollection)Other.Fonts);
+            CollectionAssert.AreEquivalent(
+                new string[]
+                {
+                    GetFolderPath(SpecialFolder.Fonts),
+                    $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
+                },
+                (System.Collections.ICollection)Other.Fonts
+            );
         }
     }
 
@@ -58,14 +72,26 @@ public class Other_Test
         public void Applications_MacOS_Default()
         {
             Helper.Prepare("DISCARD", null, "macOS");
-            CollectionAssert.AreEquivalent(new string[] { "/Applications" }, (System.Collections.ICollection)Other.Applications);
+            CollectionAssert.AreEquivalent(
+                new string[] { "/Applications" },
+                (System.Collections.ICollection)Other.Applications
+            );
         }
 
         [TestMethod, TestCategory("Fonts")]
         public void Fonts_MacOS_Default()
         {
             Helper.Prepare("DISCARD", null, "macOS");
-            CollectionAssert.AreEquivalent(new string[] { $"{Other.Home}/Library/Fonts", "/Library/Fonts", "/System/Library/Fonts", "/Network/Library/Fonts" }, (System.Collections.ICollection)Other.Fonts);
+            CollectionAssert.AreEquivalent(
+                new string[]
+                {
+                    $"{Other.Home}/Library/Fonts",
+                    "/Library/Fonts",
+                    "/System/Library/Fonts",
+                    "/Network/Library/Fonts"
+                },
+                (System.Collections.ICollection)Other.Fonts
+            );
         }
     }
 
@@ -76,7 +102,7 @@ public class Other_Test
         public void Home_Linux_Default()
         {
             Helper.Prepare("DISCARD", null, "Linux");
-            Assert.AreEqual(GetEnvironmentVariable("HOME"), Other.Home);
+            Assert.AreEqual(GetFolderPath(SpecialFolder.UserProfile), Other.Home);
         }
 
         [TestMethod, TestCategory("Home")]
@@ -90,14 +116,33 @@ public class Other_Test
         public void Applications_Linux_Default()
         {
             Helper.Prepare("DISCARD", null, "Linux");
-            CollectionAssert.AreEquivalent(new string[] { $"{BaseDirectory.DataHome}/applications", $"{Other.Home}/.local/share/applications", "/usr/local/share/applications", "/usr/share/applications", }, (System.Collections.ICollection)Other.Applications);
+            CollectionAssert.AreEquivalent(
+                new string[]
+                {
+                    $"{BaseDirectory.DataHome}/applications",
+                    $"{Other.Home}/.local/share/applications",
+                    "/usr/local/share/applications",
+                    "/usr/share/applications",
+                },
+                (System.Collections.ICollection)Other.Applications
+            );
         }
 
         [TestMethod, TestCategory("Fonts")]
         public void Fonts_Linux_Default()
         {
             Helper.Prepare("DISCARD", null, "Linux");
-            CollectionAssert.AreEquivalent(new string[] { $"{BaseDirectory.DataHome}/fonts", $"{Other.Home}/.fonts", $"{Other.Home}/.local/share/fonts", "/usr/local/share/fonts", "/usr/share/fonts", }, (System.Collections.ICollection)Other.Fonts);
+            CollectionAssert.AreEquivalent(
+                new string[]
+                {
+                    $"{BaseDirectory.DataHome}/fonts",
+                    $"{Other.Home}/.fonts",
+                    $"{Other.Home}/.local/share/fonts",
+                    "/usr/local/share/fonts",
+                    "/usr/share/fonts",
+                },
+                (System.Collections.ICollection)Other.Fonts
+            );
         }
     }
 }

@@ -12,42 +12,57 @@ public class BaseDirectory_Test
         public void DataHome_Windows_Default()
         {
             Helper.Prepare("XDG_DATA_HOME", null, "Windows");
-            Assert.AreEqual(BaseDirectory.DataHome, GetFolderPath(SpecialFolder.LocalApplicationData));
+            Assert.AreEqual(
+                BaseDirectory.DataHome,
+                GetFolderPath(SpecialFolder.LocalApplicationData)
+            );
         }
 
         [TestMethod, TestCategory("ConfigHome")]
         public void ConfigHome_Windows_Default()
         {
             Helper.Prepare("XDG_CONFIG_HOME", null, "Windows");
-            Assert.AreEqual(BaseDirectory.ConfigHome, GetFolderPath(SpecialFolder.LocalApplicationData));
+            Assert.AreEqual(
+                BaseDirectory.ConfigHome,
+                GetFolderPath(SpecialFolder.LocalApplicationData)
+            );
         }
 
         [TestMethod, TestCategory("StateHome")]
         public void StateHome_Windows_Default()
         {
             Helper.Prepare("XDG_STATE_HOME", null, "Windows");
-            Assert.AreEqual(GetFolderPath(SpecialFolder.LocalApplicationData), BaseDirectory.StateHome);
+            Assert.AreEqual(
+                GetFolderPath(SpecialFolder.LocalApplicationData),
+                BaseDirectory.StateHome
+            );
         }
 
         [TestMethod, TestCategory("BinHome")]
         public void BinHome_Windows_Default()
         {
             Helper.Prepare("XDG_BIN_HOME", null, "Windows");
-            Assert.IsNull(BaseDirectory.BinHome);
+            Assert.AreEqual(string.Empty, BaseDirectory.BinHome);
         }
 
         [TestMethod, TestCategory("CacheHome")]
         public void CacheHome_Windows_Default()
         {
             Helper.Prepare("XDG_CACHE_HOME", null, "Windows");
-            Assert.AreEqual($"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\cache", BaseDirectory.CacheHome);
+            Assert.AreEqual(
+                $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\cache",
+                BaseDirectory.CacheHome
+            );
         }
 
         [TestMethod, TestCategory("RuntimeDir")]
         public void RuntimeDir_Windows_Default()
         {
             Helper.Prepare("XDG_RUNTIME_DIR", null, "Windows");
-            Assert.AreEqual(GetFolderPath(SpecialFolder.LocalApplicationData), BaseDirectory.RuntimeDir);
+            Assert.AreEqual(
+                GetFolderPath(SpecialFolder.LocalApplicationData),
+                BaseDirectory.RuntimeDir
+            );
         }
 
         [TestMethod, TestCategory("DataDirs")]
@@ -55,7 +70,11 @@ public class BaseDirectory_Test
         {
             Helper.Prepare("XDG_DATA_DIRS", null, "Windows");
             CollectionAssert.AreEqual(
-                new string[] { GetEnvironmentVariable("APPDATA")!, GetEnvironmentVariable("PROGRAMDATA")! },
+                new string[]
+                {
+                    GetEnvironmentVariable("APPDATA")!,
+                    GetEnvironmentVariable("PROGRAMDATA")!
+                },
                 (System.Collections.ICollection)BaseDirectory.DataDirs
             );
         }
@@ -65,7 +84,11 @@ public class BaseDirectory_Test
         {
             Helper.Prepare("XDG_CONFIG_DIRS", null, "Windows");
             CollectionAssert.AreEqual(
-                new string[] { GetEnvironmentVariable("PROGRAMDATA")!, GetEnvironmentVariable("APPDATA")! },
+                new string[]
+                {
+                    GetEnvironmentVariable("PROGRAMDATA")!,
+                    GetEnvironmentVariable("APPDATA")!
+                },
                 (System.Collections.ICollection)BaseDirectory.ConfigDirs
             );
         }
@@ -131,7 +154,12 @@ public class BaseDirectory_Test
         {
             Helper.Prepare("XDG_CONFIG_DIRS", null, "MacOS");
             CollectionAssert.AreEqual(
-                new string[] { $"{Other.Home}/Library/Preferences", "/Library/Application Support", "/Library/Preferences" },
+                new string[]
+                {
+                    $"{Other.Home}/Library/Preferences",
+                    "/Library/Application Support",
+                    "/Library/Preferences"
+                },
                 (System.Collections.ICollection)BaseDirectory.ConfigDirs
             );
         }
@@ -179,7 +207,7 @@ public class BaseDirectory_Test
         public void RuntimeDir_Linux_Default()
         {
             Helper.Prepare("XDG_RUNTIME_DIR", null, "Linux");
-            Assert.AreEqual($"/run/user/{GetEnvironmentVariable("UID")}", BaseDirectory.RuntimeDir);
+            Assert.AreEqual($"/run/user/{GetEnvironmentVariable("UID") ?? "0"}", BaseDirectory.RuntimeDir);
         }
 
         [TestMethod, TestCategory("DataDirs")]

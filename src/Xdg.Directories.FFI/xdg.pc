@@ -4,7 +4,7 @@ includedir=${prefix}/include
 libdir=${exec_prefix}/lib
 
 Name: xdg
-Description: xdg directory library
+Description: a dotnet-ffi xdg directory library
 Version: 1.0.0
 Libs: -L${libdir} -lxdg
 Cflags: -I${includedir}

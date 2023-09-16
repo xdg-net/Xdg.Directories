@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 
 namespace Xdg.Testing.Directories;
+
 internal static class Helper
 {
     public static void Prepare(string Env, string? EnvValue, string OS)

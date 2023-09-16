@@ -2,7 +2,7 @@ PREFIX ?= /usr/local
 LIB ?= lib64
 DOTNET ?= dotnet
 NETVERSION ?= net7.0
-PUBFLAGS ?= --framework $(NETVERSION) -c Release -p PublishAot=true
+PUBFLAGS ?= --framework $(NETVERSION) -c Release
 
 ifeq ($(OS),Windows_NT)
 	OSFLAG += win

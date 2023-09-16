@@ -33,7 +33,7 @@ Inspiration is taken from the [Go implementation](https://github.com/adrg/xdg) f
 <details open>
 <summary>User Directory</summary>
 
-User directories on Windows use [Known Folders](https://learn.microsoft.com/en-us/windows/win32/shell/known-folders) as a fallback.
+User directories on Windows use [Known Folders](https://learn.microsoft.com/en-us/windows/win32/shell/known-folders).
 | Environment Variable | Windows | macOS | Linux/FreeBSD |
 | --- | --- | --- | --- |
 | `XDG_DESKTOP_DIR` | `Desktop` | `$HOME/Desktop` | `$HOME/Desktop` |

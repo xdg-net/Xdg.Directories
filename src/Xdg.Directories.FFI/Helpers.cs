@@ -14,10 +14,13 @@ internal static partial class Exports
     /// </remarks>
     /// <param name="p">The .NET Pointer to free</param>
     [UnmanagedCallersOnly(EntryPoint = "xdg_free")]
-    public static void Free(IntPtr p)
-        => Marshal.FreeCoTaskMem(p);
+    public static void Free(IntPtr p) => Marshal.FreeCoTaskMem(p);
 
-    internal static IntPtr StringToPtr(string? str)
-        => Marshal.StringToCoTaskMemUTF8(str);
+    /// <summary>
+    /// Converts a .NET string to a C string
+    /// </summary>
+    /// <param name="str">The .NET string</param>
+    /// <returns>A pointer to a C string</returns>
+    internal static IntPtr StringToPtr(string? str) => Marshal.StringToCoTaskMemUTF8(str);
 }
 #endif

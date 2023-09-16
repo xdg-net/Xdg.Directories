@@ -1,16 +1,18 @@
 open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
 open BenchmarkDotNet.Jobs
-open Xdg.Directories;
+open BenchmarkDotNet.Configs
+open Xdg.Directories
 
 [<MemoryDiagnoser>]
-//[<SimpleJob(RuntimeMoniker.Mono)>]
-[<SimpleJob(RuntimeMoniker.Net462)>]
-[<SimpleJob(RuntimeMoniker.Net70, baseline = true)>]
-[<SimpleJob(RuntimeMoniker.NativeAot70)>]
+#if WINDOWS
+[<SimpleJob(RuntimeMoniker.Net481)>]
+#endif
+[<SimpleJob(RuntimeMoniker.Net70)>]
+// [<SimpleJob(RuntimeMoniker.NativeAot70)>]
 type Benchmarks() =
     // Base Directory
-    [<Benchmark>]
+    [<Benchmark(Baseline=true)>]
     member _.DataHome () = BaseDirectory.DataHome
     [<Benchmark>]
     member _.ConfigHome () = BaseDirectory.ConfigHome
@@ -18,7 +20,7 @@ type Benchmarks() =
     member _.StateHome () = BaseDirectory.StateHome
     [<Benchmark>]
     member _.BinHome () = BaseDirectory.BinHome
-    [<Benchmark>]
+    [<Benchmark>] 
     member _.DataDirs () = BaseDirectory.DataDirs
     [<Benchmark>]
     member _.ConfigDirs () = BaseDirectory.ConfigDirs
@@ -53,4 +55,5 @@ type Benchmarks() =
     [<Benchmark>]
     member _.Fonts () = Other.Fonts
 
-BenchmarkRunner.Run<Benchmarks>() |> ignore
+let config = DefaultConfig.Instance.WithOptions(ConfigOptions.DisableOptimizationsValidator)
+BenchmarkRunner.Run<Benchmarks>(config) |> ignore

@@ -8,14 +8,14 @@ public static class Other
     {
         get
         {
-            // Unix ?? Windows
-            string? home =
-                GetEnvironmentVariable("HOME")
-                ?? GetEnvironmentVariable("USERPROFILE");
-            if (home is not null)
-                return home;
-            else
-                return GetFolderPath(SpecialFolder.UserProfile);
+            string? homeEnv = Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows => GetEnvironmentVariable("USERPROFILE"),
+                Helpers.OS.MacOS => GetEnvironmentVariable("HOME"),
+                Helpers.OS.UnixLike => GetEnvironmentVariable("HOME"),
+                _ => null
+            };
+            return homeEnv ?? GetFolderPath(SpecialFolder.UserProfile);
         }
     }
 
@@ -23,56 +23,63 @@ public static class Other
     public static IList<string> Applications
     {
         get =>
-            Helpers.OS(
-                "",
-                new string[]
-                {
-                    GetFolderPath(SpecialFolder.Programs),
-                    GetFolderPath(SpecialFolder.CommonPrograms)
-                },
-                new string[] { "/Applications" },
-                new string[]
-                {
-                    $"{BaseDirectory.DataHome}/applications",
-                    $"{Home}/.local/share/applications",
-                    "/usr/local/share/applications",
-                    "/usr/share/applications",
-                    // TODO: Add $XDG_DATA_DIRS/applications
-                }
-            )!;
+            Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => new string[]
+                    {
+                        GetFolderPath(SpecialFolder.Programs),
+                        GetFolderPath(SpecialFolder.CommonPrograms)
+                    },
+                Helpers.OS.MacOS => new string[] { "/Applications" },
+                Helpers.OS.UnixLike
+                    => new string[]
+                    {
+                        $"{BaseDirectory.DataHome}/applications",
+                        $"{Home}/.local/share/applications",
+                        "/usr/local/share/applications",
+                        "/usr/share/applications",
+                        // TODO: Add $XDG_DATA_DIRS/applications
+                    },
+                _ => Array.Empty<string>()
+            };
     }
 
     /// <include file='docs/Other.xml' path='docs/Fonts'/>
     public static IList<string> Fonts
     {
         get =>
-            Helpers.OS(
-                "",
-                new string[]
-                {
-                    GetEnvironmentVariable("SystemRoot") is not null
-                        ? $"{GetEnvironmentVariable("SystemRoot")}\\Fonts"
-                        : GetFolderPath(SpecialFolder.Fonts),
-                    GetEnvironmentVariable("LOCALAPPDATA") is not null
-                        ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
-                        : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
-                },
-                new string[]
-                {
-                    $"{Home}/Library/Fonts",
-                    "/Library/Fonts",
-                    "/System/Library/Fonts",
-                    "/Network/Library/Fonts"
-                },
-                new string[]
-                {
-                    $"{BaseDirectory.DataHome}/fonts",
-                    $"{Home}/.fonts",
-                    $"{Home}/.local/share/fonts",
-                    "/usr/local/share/fonts",
-                    "/usr/share/fonts",
-                    // TODO: Add $XDG_DATA_DIRS/fonts
-                }
-            )!;
+            Helpers.GetCurrentOperatingSystem() switch
+            {
+                Helpers.OS.Windows
+                    => new string[]
+                    {
+                        GetEnvironmentVariable("SystemRoot") is not null
+                            ? $"{GetEnvironmentVariable("SystemRoot")}\\Fonts"
+                            : GetFolderPath(SpecialFolder.Fonts),
+                        GetEnvironmentVariable("LOCALAPPDATA") is not null
+                            ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
+                            : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
+                    },
+                Helpers.OS.MacOS
+                    => new string[]
+                    {
+                        $"{Home}/Library/Fonts",
+                        "/Library/Fonts",
+                        "/System/Library/Fonts",
+                        "/Network/Library/Fonts"
+                    },
+                Helpers.OS.UnixLike
+                    => new string[]
+                    {
+                        Path.Combine(BaseDirectory.DataHome, "fonts"),
+                        Path.Combine(Home, ".fonts"),
+                        Path.Combine(Home, ".local", "share", "fonts"),
+                        "/usr/local/share/fonts",
+                        "/usr/share/fonts",
+                        // TODO: Add $XDG_DATA_DIRS/fonts
+                    },
+                _ => Array.Empty<string>()
+            };
     }
 }

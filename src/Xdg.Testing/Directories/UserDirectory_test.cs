@@ -19,7 +19,7 @@ public class UserDirectory_Test
         public void DownloadDir_Windows_Default()
         {
             Helper.Prepare("XDG_DOWNLOAD_DIR", null, "Windows");
-            Assert.IsNull(UserDirectory.DownloadDir);
+            Assert.AreEqual(string.Empty, UserDirectory.DownloadDir);
         }
 
         [TestMethod, TestCategory("DocumentsDir")]
