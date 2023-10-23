@@ -6,16 +6,6 @@ namespace Xdg.Directories.FFI;
 internal static partial class Exports
 {
     [UnmanagedCallersOnly(EntryPoint = "xdg_user_home")]
-    public static IntPtr UserHome()
-    {
-        try
-        {
-            return StringToPtr(Other.Home);
-        }
-        catch
-        {
-            return IntPtr.Zero;
-        }
-    }
+    public static IntPtr UserHome() => StringToPtr(Other.Home);
 }
 #endif

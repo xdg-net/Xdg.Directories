@@ -1,11 +1,11 @@
-# Xdg
-----
-[![Drone Build Status](https://ci.git.froth.zone/api/badges/sam/Xdg.Net/status.svg)](https://ci.git.froth.zone/sam/Xdg.Net)
+# Xdg.Net
+
+[![Drone build status](https://img.shields.io/drone/build/sam/Xdg.Net?server=https%3A%2F%2Fci.git.froth.zone)](https://ci.git.froth.zone/sam/Xdg.Net)
 [![GitHub Actions Build](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
 [![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml)
 [![Nuget](https://img.shields.io/nuget/v/Xdg.Directories)](https://www.nuget.org/packages/Xdg.Directories/)
 
-A ***small***, ***fast*** and ***portable*** .NET implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories for Windows, MacOS and Linux/FreeBSD.
+A ***small*** (the .dll is only 11 KB), [***fast***](./src/Xdg.Benchmarks/README.md) and ***portable*** (Completely supports .NET Standard 2.0 and even NativeAOT!) .NET implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories for Windows, MacOS and Linux/FreeBSD.
 
 ## Default Locations
 

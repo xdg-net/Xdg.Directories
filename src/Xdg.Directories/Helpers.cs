@@ -15,7 +15,7 @@ static internal class Helpers
         /// </summary>
         UnixLike,
         /// <summary>
-        /// Anything not supported by .NET
+        /// Anything not supported by the library (Android/iOS, etc.)
         /// </summary>
         Other
     }
