@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net7.0;net462</TargetFrameworks>
+    <TargetFrameworks>net8.0;net462</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <IsPublishable>false</IsPublishable>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
@@ -11,8 +11,7 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>latest-all</AnalysisLevel>
 
-    <IsWindows
-      Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">
+    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">
       true
     </IsWindows>
   </PropertyGroup>
@@ -21,23 +20,19 @@
     <DefineConstants>Windows</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup
-    Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
-  <PropertyGroup
-    Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
-  <PropertyGroup
-    Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net462|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net462|AnyCPU'">
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
-  <PropertyGroup
-    Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
@@ -46,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.10" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
   </ItemGroup>
 
   <ItemGroup>

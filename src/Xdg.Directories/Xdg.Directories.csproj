@@ -4,7 +4,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup Label="SDK Stuff">
-		<TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<IsPackable>true</IsPackable>
 		<IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
@@ -37,10 +37,10 @@
 		<MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
 		<WarningLevel>9999</WarningLevel>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
 		<WarningLevel>9999</WarningLevel>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -65,9 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup Label="NuGet Packages">
-		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="8.0.0" PrivateAssets="all" />
 		<SourceLinkGiteaHost Include="git.froth.zone" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
 		<PackageReference Include="MinVer" Version="4.3.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
