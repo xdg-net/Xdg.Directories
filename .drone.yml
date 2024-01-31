@@ -14,12 +14,12 @@ steps:
   commands:
   - git fetch --tags
 - name: Build for Release
-  image: mcr.microsoft.com/dotnet/sdk:7.0
+  image: mcr.microsoft.com/dotnet/sdk:8.0
   commands:
   - dotnet build -c Release -p:SymbolPackageFormat=symbols.nupkg -p:ContinuousIntegrationBuild=true
   - dotnet build -c Release -p:ContinuousIntegrationBuild=true
 - name: Publish
-  image: mcr.microsoft.com/dotnet/sdk:7.0
+  image: mcr.microsoft.com/dotnet/sdk:8.0
   environment:
     API_KEY:
       from_secret: API_KEY
