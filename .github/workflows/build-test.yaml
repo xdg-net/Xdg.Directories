@@ -49,9 +49,7 @@ jobs:
         with:
           path: ~/.nuget/packages
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
       - name: Install dependencies
         run: dotnet restore
       - name: Build the package
@@ -77,9 +75,7 @@ jobs:
         with:
           path: ~/.nuget/packages
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
       - name: Install dependencies
         run: dotnet restore
       - name: Build the package

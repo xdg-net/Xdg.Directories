@@ -1,11 +1,63 @@
-# Xdg.Net
+# Xdg.Net 
 
-[![Drone build status](https://img.shields.io/drone/build/sam/Xdg.Net?server=https%3A%2F%2Fci.git.froth.zone)](https://ci.git.froth.zone/sam/Xdg.Net)
-[![GitHub Actions Build](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
-[![GitHub Actions CodeQL](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml/badge.svg)](https://github.com/xdg-net/Xdg.Net/actions/workflows/codeql.yaml)
-[![Nuget](https://img.shields.io/nuget/v/Xdg.Directories)](https://www.nuget.org/packages/Xdg.Directories/)
+> A .NET Standard library for the XDG Base Directory Specification and XDG user directories.
 
-A ***small*** (the .dll is only 11 KB), [***fast***](./src/Xdg.Benchmarks/README.md) and ***portable*** (Completely supports .NET Standard 2.0 and even NativeAOT!) .NET implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories for Windows, MacOS and Linux/FreeBSD.
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xdg-net/xdg.directories/build-test.yaml?style=for-the-badge&logo=github)](https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml)
+ [![NuGet Version](https://img.shields.io/nuget/v/xdg.directories?style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/Xdg.Directories/)
+ [![MIT License](https://img.shields.io/github/license/xdg-net/xdg.directories?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
+
+Xdg.Net is a ***small*** (the .dll is only 11 KB), [***fast***](./src/Xdg.Benchmarks/README.md) and ***portable*** (Completely supports .NET Standard 2.0 and even NativeAOT!) .NET implementation of the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) and XDG user directories for Windows, MacOS and Linux/FreeBSD.
+
+<!-- 
+<p align="center">
+	<a href="https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg" rel="nofollow">
+		<img src="https://github.com/xdg-net/Xdg.Net/actions/workflows/build-test.yaml/badge.svg" alt="GitHub Actions status">
+	</a>
+	<a href="https://www.nuget.org/packages/Xdg.Directories" rel="nofollow">
+		<img src="https://img.shields.io/nuget/v/Xdg.Directories" alt="NuGet">
+	</a>
+</p> -->
+
+
+
+## Installation
+Use [NuGet](http://docs.nuget.org/docs/start-here/installing-nuge) to install [Xdg.Directories](thttps://www.nuget.org/packages/Xdg.Directories).
+
+From the .NET CLI:
+
+```bash
+dotnet add package Xdg.Directories
+```
+
+or from Visual Studio's package manager:
+
+```pwsh
+Install-Package Xdg.Directories
+```
+
+## Usage
+
+### Base Directories, C#
+
+```csharp
+using System;
+using Xdg.Directories;
+
+// Prints /home/$USER/.local/share
+Console.Writeline(BaseDirectory.DataHome);
+
+// Prints /home/$USER/.cache
+Console.Writeline(BaseDirectory.CacheHome)
+```
+
+### User Directories, F#
+
+```fsharp
+open Xdg.Directories
+
+// Prints /home/$USER/Documents
+printfn "%s" UserDirectory.DesktopDir
+```
 
 ## Default Locations
 
@@ -54,14 +106,16 @@ User directories on Windows use [Known Folders](https://learn.microsoft.com/en-u
 </details>
 
 ## Packaging
-Stable releases are available on [NuGet](https://www.nuget.org/packages/Xdg.Directories/), and preview releases are uploaded to both [GitHub packages](https://github.com/xdg-net/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/sam/-/packages/nuget/xdg.directories) (no login required).
+Stable releases are available on [NuGet](https://www.nuget.org/packages/Xdg.Directories/), and preview releases are uploaded to both [GitHub packages](https://github.com/xdg-net/Xdg.Net/pkgs/nuget/Xdg.Directories) (need GitHub account to download) and [Gitea packages](https://git.froth.zone/mirrors/-/packages/nuget/xdg.directories) (no login required).
 
 ```pwsh
 dotnet add package Xdg.Directories
 ```
 
-### Native Library
+### Native Library (WIP)
+
 [View the README here](./src/Xdg.Directories.FFI/README.md)
 
 ## License
+
 [MIT](./LICENSE)
