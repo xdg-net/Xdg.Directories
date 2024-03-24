@@ -20,4 +20,4 @@ jobs:
     - name: Build
       run: dotnet build -c Release -p:SymbolPackageFormat=symbols.nupkg -p:ContinuousIntegrationBuild=true
     - name: Publish
-      run: dotnet nuget push bin/Release/*.symbols.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://git.froth.zone/api/packages/mirrors/nuget/index.json
+      run: dotnet nuget push src/Xdg.Directories/bin/Release/*.symbols.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://git.froth.zone/api/packages/mirrors/nuget/index.json
