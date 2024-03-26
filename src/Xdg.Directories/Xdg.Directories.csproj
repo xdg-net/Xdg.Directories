@@ -7,51 +7,47 @@
 		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<IsPackable>true</IsPackable>
-		<IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
+		<IsTrimmable
+			Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
+		<IsAotCompatible
+			Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>latest-all</AnalysisLevel>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<WarningLevel>9999</WarningLevel>
 	</PropertyGroup>
 
 	<PropertyGroup Label="NuGet Packaging">
-		<Title>Xdg.Directories.Net</Title>
-		<Description>.NET implementation of the XDG Base Directory Specification and user directories</Description>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<Authors>$(AssemblyName) Authors</Authors>
-		<PackageProjectUrl>https://github.com/xdg-net/Xdg.Net</PackageProjectUrl>
-
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Title>Xdg.Directories</Title>
+		<Authors>$(AssemblyName) Authors</Authors>
+		<Description>.NET implementation of the XDG Base Directory Specification and user directories</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>https://xdg-net.github.io/xdg.directories</PackageProjectUrl>
+		<PackageTags>
+			xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
+
+		<RepositoryUrl>https://github.com/xdg-net/Xdg.Directories</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageTags>xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
-		<RepositoryType>git</RepositoryType>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 
 		<MinVerTagPrefix>v</MinVerTagPrefix>
 		<MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
-		<WarningLevel>9999</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
-		<WarningLevel>9999</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-		<WarningLevel>9999</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-		<WarningLevel>9999</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup>
-	  <IsPublishable>False</IsPublishable>
-	</PropertyGroup>
-
 	<ItemGroup Label="Extra files">
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 		<None Include="..\..\LICENSE" Visible="false">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>

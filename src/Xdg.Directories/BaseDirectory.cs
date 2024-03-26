@@ -81,7 +81,7 @@ public static class BaseDirectory
                             ?? GetFolderPath(SpecialFolder.CommonApplicationData)
                     },
                 Helpers.OS.MacOS => new string[] { "/Library/Application Support" },
-                Helpers.OS.UnixLike => new string[] {"/usr/local/share", "/usr/share"},
+                Helpers.OS.UnixLike => new string[] { "/usr/local/share", "/usr/share" },
                 _ => Array.Empty<string>()
             };
     }
