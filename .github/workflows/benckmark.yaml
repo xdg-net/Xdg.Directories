@@ -25,7 +25,7 @@ jobs:
           name: Benchmark.Net Benchmark
           tool: 'benchmarkdotnet'
           output-file-path: 'BenchmarkDotNet.Artifacts/results/Program.Benchmarks-report-full.json'
-          github-token: $ {{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           alert-threshold: '200%'
           comment-on-alert: true
