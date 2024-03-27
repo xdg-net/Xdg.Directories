@@ -1,9 +1,9 @@
 name: Deploy Documentation
 
 on:
-  workflow_run:
-    workflows: [Benchmarks]
-    types: [completed]
+  push:
+    branches:
+      - master
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -37,7 +37,7 @@ jobs:
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/master'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/_site
