@@ -1,3 +1,5 @@
+name: Deploy Documentation
+
 on:
   workflow_run:
     workflows: [Benchmarks]
@@ -29,6 +31,7 @@ jobs:
       with:
         dotnet-version: 8.x
     - run: dotnet tool update -g docfx
+    - run: dotnet tool restore
     - name: Build website
       run: dotnet docfx docs/docfx.json
 
