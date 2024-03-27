@@ -27,7 +27,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
-		<PackageProjectUrl>https://xdg-net.github.io/xdg.directories</PackageProjectUrl>
+		<PackageProjectUrl>https://xdg-net.github.io/Xdg.Directories</PackageProjectUrl>
 		<PackageTags>
 			xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
 
