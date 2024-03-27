@@ -4,6 +4,10 @@
 		<summary>
 			Other useful directories that aren't specified by XDG.
 		</summary>
+		<remarks>
+			These variables were graciously stolen from the excellent <see href="https://github.com/adrg/xdg">Go XDG implementation</see>.
+			That library largely inspired this one, absolutely recommended if you're working in Go.
+		</remarks>
 	</Other>
 	<Home>
 		<summary>

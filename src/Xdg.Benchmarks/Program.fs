@@ -20,8 +20,8 @@ type Benchmarks() =
     //member _.StateHome () = BaseDirectory.StateHome
     //[<Benchmark>]
     //member _.BinHome () = BaseDirectory.BinHome
-    //[<Benchmark>] 
-    //member _.DataDirs () = BaseDirectory.DataDirs
+    [<Benchmark>] 
+    member _.DataDirs () = BaseDirectory.DataDirs
     // [<Benchmark>]
     // member _.ConfigDirs () = BaseDirectory.ConfigDirs
     //[<Benchmark>]
@@ -30,8 +30,8 @@ type Benchmarks() =
     //member _.RuntimeDir() = BaseDirectory.RuntimeDir
 
     // User Directories
-    // [<Benchmark>]
-    // member _.DesktopDir () = UserDirectory.DesktopDir
+    [<Benchmark>]
+    member _.DesktopDir () = UserDirectory.DesktopDir
     //[<Benchmark>]
     //member _.DownloadDir () = UserDirectory.DownloadDir
     //[<Benchmark>]
@@ -48,8 +48,8 @@ type Benchmarks() =
     //member _.PublicDir () = UserDirectory.PublicDir
 
     // Other
-    // [<Benchmark>]
-    // member _.Home () = Other.Home
+    [<Benchmark>]
+    member _.Home () = Other.Home
     //[<Benchmark>]
     //member _.Applications () = Other.Applications
     //[<Benchmark>]

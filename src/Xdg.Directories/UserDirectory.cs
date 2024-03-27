@@ -1,9 +1,9 @@
 namespace Xdg.Directories;
 
-/// <include file='docs/UserDirectory.xml' path='docs/UserDirectory'/>
+/// <include file='docs/UserDirectory.xml' path='docs/UserDirectory/*'/>
 public static class UserDirectory
 {
-    /// <include file='docs/UserDirectory.xml' path='docs/DesktopDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/DesktopDir/*'/>
     public static string DesktopDir
     {
         get =>
@@ -17,7 +17,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/DownloadDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/DownloadDir/*'/>
     public static string DownloadDir
     {
         get =>
@@ -32,7 +32,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/DocumentsDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/DocumentsDir/*'/>
     public static string DocumentsDir
     {
         get =>
@@ -46,7 +46,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/MusicDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/MusicDir/*'/>
     public static string MusicDir
     {
         get =>
@@ -60,7 +60,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/PicturesDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/PicturesDir/*'/>
     public static string PicturesDir
     {
         get =>
@@ -74,7 +74,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/VideosDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/VideosDir/*'/>
     public static string VideosDir
     {
         get =>
@@ -88,7 +88,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/TemplatesDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/TemplatesDir/*'/>
     public static string TemplatesDir
     {
         get =>
@@ -102,7 +102,7 @@ public static class UserDirectory
             };
     }
 
-    /// <include file='docs/UserDirectory.xml' path='docs/PublicDir'/>
+    /// <include file='docs/UserDirectory.xml' path='docs/PublicDir/*'/>
     public static string PublicDir
     {
         get =>

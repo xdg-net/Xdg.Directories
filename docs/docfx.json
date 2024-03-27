@@ -1,0 +1,49 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../src",
+          "files": [
+            "**/Xdg.Directories*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern",
+      "custom"
+    ],
+    "globalMetadata": {
+      "_appName": "Xdg.Directories",
+      "_appTitle": "",
+      "_appFaviconPath": "images/icon.png",
+      "_appLogoPath": "images/icon.svg",
+      "_enableSearch": true,
+      "_lang": "en",
+      "pdf": false
+    }
+  }
+}

@@ -1,9 +1,9 @@
 namespace Xdg.Directories;
 
-/// <include file='docs/BaseDirectory.xml' path='docs/BaseDirectory'/>
+/// <include file='docs/BaseDirectory.xml' path='docs/BaseDirectory/*'/>
 public static class BaseDirectory
 {
-    /// <include file='docs/BaseDirectory.xml' path='docs/DataHome'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/DataHome/*'/>
     public static string DataHome
     {
         get =>
@@ -19,7 +19,7 @@ public static class BaseDirectory
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/ConfigHome'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/ConfigHome/*'/>
     public static string ConfigHome
     {
         get =>
@@ -35,7 +35,7 @@ public static class BaseDirectory
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/StateHome'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/StateHome/*'/>
     public static string StateHome
     {
         get =>
@@ -51,7 +51,7 @@ public static class BaseDirectory
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/BinHome'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/BinHome/*'/>
     public static string BinHome
     {
         get =>
@@ -65,7 +65,7 @@ public static class BaseDirectory
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/DataDirs'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/DataDirs/*'/>
     public static IList<string> DataDirs
     {
         get =>
@@ -73,20 +73,20 @@ public static class BaseDirectory
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
-                    => new string[]
-                    {
+                    =>
+                    [
                         GetEnvironmentVariable("APPDATA")
                             ?? GetFolderPath(SpecialFolder.ApplicationData),
                         GetEnvironmentVariable("PROGRAMDATA")
                             ?? GetFolderPath(SpecialFolder.CommonApplicationData)
-                    },
-                Helpers.OS.MacOS => new string[] { "/Library/Application Support" },
-                Helpers.OS.UnixLike => new string[] { "/usr/local/share", "/usr/share" },
-                _ => Array.Empty<string>()
+                    ],
+                Helpers.OS.MacOS => ["/Library/Application Support"],
+                Helpers.OS.UnixLike => ["/usr/local/share", "/usr/share"],
+                _ => []
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/ConfigDirs'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/ConfigDirs/*'/>
     public static IList<string> ConfigDirs
     {
         get =>
@@ -94,26 +94,26 @@ public static class BaseDirectory
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
-                    => new string[]
-                    {
+                    =>
+                    [
                         GetEnvironmentVariable("ProgramData")
                             ?? GetFolderPath(SpecialFolder.CommonApplicationData),
                         GetEnvironmentVariable("APPDATA")
                             ?? GetFolderPath(SpecialFolder.ApplicationData)
-                    },
+                    ],
                 Helpers.OS.MacOS
-                    => new string[]
-                    {
+                    =>
+                    [
                         Path.Combine(Other.Home, "Library", "Preferences"),
                         "/Library/Application Support",
                         "/Library/Preferences"
-                    },
-                Helpers.OS.UnixLike => new string[] { "/etc/xdg" },
-                _ => Array.Empty<string>()
+                    ],
+                Helpers.OS.UnixLike => ["/etc/xdg"],
+                _ => []
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/CacheHome'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/CacheHome/*'/>
     public static string CacheHome
     {
         get =>
@@ -130,7 +130,7 @@ public static class BaseDirectory
             };
     }
 
-    /// <include file='docs/BaseDirectory.xml' path='docs/RuntimeDir'/>
+    /// <include file='docs/BaseDirectory.xml' path='docs/RuntimeDir/*'/>
     public static string RuntimeDir
     {
         get =>

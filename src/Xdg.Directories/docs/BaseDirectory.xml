@@ -9,9 +9,8 @@
 				<br />
 				This allows users to have less clutter in their home directories, and allows programmers to not have to hard-code directories.
 			</para>
-			All operating systems that are supported by .NET (Windows, macOS, Linux, FreeBSD at the time of writing) are supported.
 			<br />
-			For all base directory files, the directories are resolved as follows:
+			For all base directories, the directories are resolved as follows:
 			<list type="number">
 				<item>
 					<term>
@@ -21,7 +20,7 @@
 				</item>
 				<item>
 					<list type="table">
-						<item>Operating systemd dependent fallback:</item>
+						<item>Operating system dependent fallback:</item>
 						<item>
 							<term>Windows</term>
 							<description>

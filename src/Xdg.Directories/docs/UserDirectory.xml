@@ -2,8 +2,40 @@
 <docs>
 	<UserDirectory>
 		<summary>
-			Well-known user directories like desktop, documents and music folders.
+			User directories are "well known" user directories, examples include the Desktop folder and the Documents folder.
 		</summary>
+		<remarks>
+			For all user directories, the directories are resolved as follows:
+			<list type="number">
+				<item>
+					<term> The respective <c>XDG_*</c> enivronment variable </term>
+					<description>will always be used if specified</description>
+				</item>
+				<item>
+					<list type="table">
+						<item>Operating system dependent fallback:</item>
+						<item>
+							<term>Windows</term>
+							<description>
+								Use <see href="https://learn.microsoft.com/en-us/windows/win32/shell/known-folders">Known Folders</see>.
+							</description>
+						</item>
+						<item>
+							<term>macOS</term>
+							<description>
+								Not sure where this is documented by Apple but it largely follows what Linux does.
+							</description>
+						</item>
+						<item>
+							<term>Linux/FreeBSD</term>
+							<description>
+								Follow what <see href="https://freedesktop.org/wiki/Software/xdg-user-dirs">xdg-user-dirs</see> sets.
+							</description>
+						</item>
+					</list>
+				</item>
+			</list>
+		</remarks>
 	</UserDirectory>
 	<DesktopDir>
 		<summary>
