@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712756189069,
+  "lastUpdate": 1712756207283,
   "repoUrl": "https://github.com/xdg-net/Xdg.Directories",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -72,6 +72,78 @@ window.BENCHMARK_DATA = {
             "value": 304.22479311625165,
             "unit": "ns",
             "range": "± 1.227818025504474"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "sam@samtherapy.net",
+            "name": "Sam Therapy",
+            "username": "SamTherapy"
+          },
+          "distinct": true,
+          "id": "9f0e823304970f54d38e36fab0436bc243422cb9",
+          "message": "build(deps): Bump docfx from 2.75.3 to 2.76.0\n\nBumps [docfx](https://github.com/dotnet/docfx) from 2.75.3 to 2.76.0.\n- [Release notes](https://github.com/dotnet/docfx/releases)\n- [Changelog](https://github.com/dotnet/docfx/blob/main/RELEASENOTE.md)\n- [Commits](https://github.com/dotnet/docfx/compare/v2.75.3...v2.76.0)\n\n---\nupdated-dependencies:\n- dependency-name: docfx\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-04-10T15:32:22+02:00",
+          "tree_id": "8062a810b6a37caf2dcfcb0aca5b1497fb021fed",
+          "url": "https://github.com/xdg-net/Xdg.Directories/commit/9f0e823304970f54d38e36fab0436bc243422cb9"
+        },
+        "date": 1712756195962,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 178.1790049870809,
+            "unit": "ns",
+            "range": "± 0.6144379409840098"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 279.81813112894696,
+            "unit": "ns",
+            "range": "± 0.9662031836464403"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 787.0761744181315,
+            "unit": "ns",
+            "range": "± 1.7211873419673251"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 87.67847503934588,
+            "unit": "ns",
+            "range": "± 0.13766472001869137"
+          },
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 638.723505460299,
+            "unit": "ns",
+            "range": "± 1.2346401976666832"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 925.1950337336614,
+            "unit": "ns",
+            "range": "± 1.0895969612626668"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 2776.6024076021636,
+            "unit": "ns",
+            "range": "± 10.576154708493457"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 306.30609194437665,
+            "unit": "ns",
+            "range": "± 5.756234679194441"
           }
         ]
       }
