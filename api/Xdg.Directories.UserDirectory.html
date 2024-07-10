@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class UserDirectory </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UserDirectory ">
+      
+      <meta name="description" content="User directories are &amp;quot;well known&amp;quot; user directories, examples include the Desktop folder and the Documents folder.">
+      <link rel="icon" href="../images/icon.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/xdg-net/Xdg.Directories/new/master/apiSpec/new?filename=Xdg_Directories_UserDirectory.md&amp;value=---%0Auid%3A%20Xdg.Directories.UserDirectory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.svg" alt="Xdg.Directories">
+            Xdg.Directories
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Xdg.Directories.UserDirectory">
+
+
+
+  <h1 id="Xdg_Directories_UserDirectory" data-uid="Xdg.Directories.UserDirectory" class="text-break">
+Class UserDirectory  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L4"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Xdg.html">Xdg</a>.<a class="xref" href="Xdg.Directories.html">Directories</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Xdg.Directories.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>User directories are &quot;well known&quot; user directories, examples include the Desktop folder and the Documents folder.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class UserDirectory</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UserDirectory</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Xdg_Directories_UserDirectory_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>For all user directories, the directories are resolved as follows:</p>
+<ol><li><span class="term"> The respective <code>XDG_*</code> enivronment variable </span>will always be used if specified</li><li><table><tbody><tr></tr><tr><td class="term">Windows</td><td class="description">
+					Use <a href="https://learn.microsoft.com/en-us/windows/win32/shell/known-folders">Known Folders</a>.
+				</td></tr><tr><td class="term">macOS</td><td class="description">
+					Not sure where this is documented by Apple but it largely follows what Linux does.
+				</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+					Follow what <a href="https://freedesktop.org/wiki/Software/xdg-user-dirs">xdg-user-dirs</a> sets.
+				</td></tr></tbody></table></li></ol>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Xdg_Directories_UserDirectory_DesktopDir_" data-uid="Xdg.Directories.UserDirectory.DesktopDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_DesktopDir" data-uid="Xdg.Directories.UserDirectory.DesktopDir">
+  DesktopDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Desktop folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DesktopDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The user's desktop directory.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_DesktopDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_DESKTOP_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Desktop</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Desktop</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Desktop</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_DocumentsDir_" data-uid="Xdg.Directories.UserDirectory.DocumentsDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_DocumentsDir" data-uid="Xdg.Directories.UserDirectory.DocumentsDir">
+  DocumentsDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Document folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DocumentsDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store documents files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_DocumentsDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_DOCUMENTS_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Documents</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Documents</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Documents</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_DownloadDir_" data-uid="Xdg.Directories.UserDirectory.DownloadDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_DownloadDir" data-uid="Xdg.Directories.UserDirectory.DownloadDir">
+  DownloadDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Download folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DownloadDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store downloaded files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_DownloadDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_DOWNLOAD_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description"><code>null</code><br>
+			Windows does not specify the Downloads folder in its magic folder list.
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Downloads</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Downloads</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_MusicDir_" data-uid="Xdg.Directories.UserDirectory.MusicDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_MusicDir" data-uid="Xdg.Directories.UserDirectory.MusicDir">
+  MusicDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Music folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string MusicDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store music files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_MusicDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_MUSIC_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Music</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Music</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Music</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_PicturesDir_" data-uid="Xdg.Directories.UserDirectory.PicturesDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_PicturesDir" data-uid="Xdg.Directories.UserDirectory.PicturesDir">
+  PicturesDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Image folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string PicturesDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store image files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_PicturesDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_PICTURES_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Pictures</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Pictures</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Pictures</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_PublicDir_" data-uid="Xdg.Directories.UserDirectory.PublicDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_PublicDir" data-uid="Xdg.Directories.UserDirectory.PublicDir">
+  PublicDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Public folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string PublicDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store public / shared files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_PublicDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_PUBLICSHARE_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%PUBLIC%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Public</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Public</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_TemplatesDir_" data-uid="Xdg.Directories.UserDirectory.TemplatesDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_TemplatesDir" data-uid="Xdg.Directories.UserDirectory.TemplatesDir">
+  TemplatesDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string TemplatesDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store template files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_TemplatesDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_TEMPLATES_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Templates</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Templates</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Templatess</code></td></tr></tbody></table>
+</div>
+
+
+
+
+  <a id="Xdg_Directories_UserDirectory_VideosDir_" data-uid="Xdg.Directories.UserDirectory.VideosDir*"></a>
+
+  <h3 id="Xdg_Directories_UserDirectory_VideosDir" data-uid="Xdg.Directories.UserDirectory.VideosDir">
+  VideosDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Video folder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string VideosDir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A location to store video files.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Xdg_Directories_UserDirectory_VideosDir_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>XDG_VIDEOS_DIR</code> is set, the directory specified.</p>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			The <code>Videos</code> Special Folder
+		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Movies</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Videos</code></td></tr></tbody></table>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/xdg-net/Xdg.Directories/blob/master/src/Xdg.Directories/UserDirectory.cs/#L4" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
