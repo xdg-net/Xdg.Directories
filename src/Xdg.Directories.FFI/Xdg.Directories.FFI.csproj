@@ -46,4 +46,9 @@
 		<InternalsVisibleTo Include="Xdg.Testing" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="8.0.10" />
+	  <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.10" />
+	</ItemGroup>
+
 </Project>

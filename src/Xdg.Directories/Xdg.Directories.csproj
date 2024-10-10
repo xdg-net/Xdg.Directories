@@ -7,10 +7,8 @@
 		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<IsPackable>true</IsPackable>
-		<IsTrimmable
-			Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
-		<IsAotCompatible
-			Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+		<IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
+		<IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
@@ -59,10 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup Label="NuGet Packages">
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.10" />
 		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="8.0.0" PrivateAssets="all" />
 		<SourceLinkGiteaHost Include="git.froth.zone" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
-		<PackageReference Include="MinVer" Version="5.0.0">
+		<PackageReference Include="MinVer" Version="6.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
