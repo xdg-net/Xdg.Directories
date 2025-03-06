@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741282026383,
+  "lastUpdate": 1741282853116,
   "repoUrl": "https://github.com/xdg-net/Xdg.Directories",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -288,6 +288,78 @@ window.BENCHMARK_DATA = {
             "value": 301.3133866446359,
             "unit": "ns",
             "range": "± 0.2515760354889438"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "sam@samtherapy.net",
+            "name": "Sam Therapy",
+            "username": "SamTherapy"
+          },
+          "committer": {
+            "email": "sam@samtherapy.net",
+            "name": "Sam Therapy",
+            "username": "SamTherapy"
+          },
+          "distinct": true,
+          "id": "e4409eed4d70a26bfa35f7260f20852625cf0eb5",
+          "message": "Update dependencies",
+          "timestamp": "2025-03-06T18:33:30+01:00",
+          "tree_id": "e410b08970898a2ed1bf25b9bf9f55b2d8fb90d4",
+          "url": "https://github.com/xdg-net/Xdg.Directories/commit/e4409eed4d70a26bfa35f7260f20852625cf0eb5"
+        },
+        "date": 1741282832518,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 188.1613564491272,
+            "unit": "ns",
+            "range": "± 0.5915251713005086"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 293.64476521809894,
+            "unit": "ns",
+            "range": "± 0.7343861246150835"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 764.3073209126791,
+            "unit": "ns",
+            "range": "± 5.378159095450965"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 88.58416447272667,
+            "unit": "ns",
+            "range": "± 0.2683762549642018"
+          },
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 632.4230943407331,
+            "unit": "ns",
+            "range": "± 2.288023865545814"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 959.6002374376569,
+            "unit": "ns",
+            "range": "± 7.590973482796745"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 2742.0921071370444,
+            "unit": "ns",
+            "range": "± 22.67872612228878"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 310.24510179247176,
+            "unit": "ns",
+            "range": "± 1.6649880884548387"
           }
         ]
       }
