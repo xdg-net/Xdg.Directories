@@ -18,7 +18,11 @@
           "relative_path": "api/Xdg.Directories.BaseDirectory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Xdg.Directories.BaseDirectory",
+      "Summary": "<p sourcefile=\"api/Xdg.Directories.BaseDirectory.yml\" sourcestartlinenumber=\"1\">The XDG Base Directory specification is a standard created by freedesktop.org that standardizes the location of storing application files.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -28,7 +32,11 @@
           "relative_path": "api/Xdg.Directories.Other.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Xdg.Directories.Other",
+      "Summary": "<p sourcefile=\"api/Xdg.Directories.Other.yml\" sourcestartlinenumber=\"1\">Other useful directories that aren't specified by XDG.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -38,7 +46,11 @@
           "relative_path": "api/Xdg.Directories.UserDirectory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Xdg.Directories.UserDirectory",
+      "Summary": "<p sourcefile=\"api/Xdg.Directories.UserDirectory.yml\" sourcestartlinenumber=\"1\">User directories are &quot;well known&quot; user directories, examples include the Desktop folder and the Documents folder.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -48,7 +60,11 @@
           "relative_path": "api/Xdg.Directories.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Xdg.Directories",
+      "Summary": null
     },
     {
       "type": "Toc",

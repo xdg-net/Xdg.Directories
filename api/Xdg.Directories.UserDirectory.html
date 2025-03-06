@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -149,13 +149,15 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
 
   <h2 id="Xdg_Directories_UserDirectory_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>For all user directories, the directories are resolved as follows:</p>
-<ol><li><span class="term"> The respective <code>XDG_*</code> enivronment variable </span>will always be used if specified</li><li><table><tbody><tr></tr><tr><td class="term">Windows</td><td class="description">
+<ol><li><span class="term"> The respective <code>XDG_*</code> enivronment variable </span>will always be used if specified</li><li>
+		<table><tbody><tr></tr><tr><td class="term">Windows</td><td class="description">
 					Use <a href="https://learn.microsoft.com/en-us/windows/win32/shell/known-folders">Known Folders</a>.
 				</td></tr><tr><td class="term">macOS</td><td class="description">
 					Not sure where this is documented by Apple but it largely follows what Linux does.
 				</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
 					Follow what <a href="https://freedesktop.org/wiki/Software/xdg-user-dirs">xdg-user-dirs</a> sets.
-				</td></tr></tbody></table></li></ol>
+				</td></tr></tbody></table>
+	</li></ol>
 </div>
 
 
@@ -196,7 +198,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_DESKTOP_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Desktop</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Desktop</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Desktop</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Desktop</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Desktop</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -235,7 +241,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_DOCUMENTS_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Documents</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Documents</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Documents</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Documents</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Documents</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -272,9 +282,15 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section" id="Xdg_Directories_UserDirectory_DownloadDir_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_DOWNLOAD_DIR</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>null</code><br>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>null</code>
+			<br>
 			Windows does not specify the Downloads folder in its magic folder list.
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Downloads</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Downloads</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Downloads</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Downloads</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -313,7 +329,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_MUSIC_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Music</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Music</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Music</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Music</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Music</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -352,7 +372,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_PICTURES_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Pictures</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Pictures</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Pictures</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Pictures</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Pictures</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -389,7 +413,13 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section" id="Xdg_Directories_UserDirectory_PublicDir_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_PUBLICSHARE_DIR</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%PUBLIC%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Public</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Public</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%PUBLIC%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Public</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Public</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -428,7 +458,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_TEMPLATES_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Templates</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Templates</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Templatess</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Templates</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Templatess</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -467,7 +501,11 @@ Class UserDirectory  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 remarks"><p>If <code>XDG_VIDEOS_DIR</code> is set, the directory specified.</p>
 <table><tbody><tr><td class="term">Windows</td><td class="description">
 			The <code>Videos</code> Special Folder
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Movies</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/Videos</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Movies</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/Videos</code>
+		</td></tr></tbody></table>
 </div>
 
 

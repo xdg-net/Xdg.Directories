@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -148,21 +148,23 @@ Class BaseDirectory  <a class="header-action link-secondary" title="View source"
 
 
   <h2 id="Xdg_Directories_BaseDirectory_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"> <p>
-   <br>
+  <div class="markdown level0 remarks"><p>
+	<br>
 	This allows users to have less clutter in their home directories, and allows programmers to not have to hard-code directories.
 </p>
- <br>
+<br>
 For all base directories, the directories are resolved as follows:
 <ol><li><span class="term">
 			The respective <code>XDG_*</code> enivronment variable
-		</span>will always be used if specified</li><li><table><tbody><tr></tr><tr><td class="term">Windows</td><td class="description">
+		</span>will always be used if specified</li><li>
+		<table><tbody><tr></tr><tr><td class="term">Windows</td><td class="description">
 					Use <a href="https://learn.microsoft.com/en-us/windows/win32/shell/known-folders">Known Folders</a>.
 				</td></tr><tr><td class="term">macOS</td><td class="description">
 					Follow the <a href="https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW1">Apple documentation</a> on application-specific files.
 				</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
 					Follow the <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory</a> specification.
-				</td></tr></tbody></table></li></ol>
+				</td></tr></tbody></table>
+	</li></ol>
 </div>
 
 
@@ -201,11 +203,17 @@ For all base directories, the directories are resolved as follows:
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_BinHome_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_BIN_HOME</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>""</code><br>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>""</code>
+			<br>
 			Windows does not support this by default.
-		</td></tr><tr><td class="term">macOS</td><td class="description"><code>""</code><br>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>""</code>
+			<br>
 			macOS does not support this by default.
-		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/.local/bin</code></td></tr></tbody></table>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/.local/bin</code>
+		</td></tr></tbody></table>
 NOTE: This is not an XDG standard but a <em>de facto</em> standard.
 </div>
 
@@ -243,7 +251,13 @@ NOTE: This is not an XDG standard but a <em>de facto</em> standard.
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_CacheHome_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_CACHE_HOME</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%LOCALAPPDATA%\cache</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Library/Caches</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/.cache</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%LOCALAPPDATA%\cache</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Library/Caches</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/.cache</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -280,10 +294,16 @@ NOTE: This is not an XDG standard but a <em>de facto</em> standard.
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_ConfigDirs_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_CONFIG_DIRS</code> is set, a list of the directories specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%ProgramData%</code>,
-			<code>%APPADATA%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>~/Library/Preferences</code>,
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%ProgramData%</code>,
+			<code>%APPADATA%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>~/Library/Preferences</code>,
 			<code>/Library/Application Support</code>,
-			<code>/Library/Preferences</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>/etc/xdg</code></td></tr></tbody></table>
+			<code>/Library/Preferences</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>/etc/xdg</code>
+		</td></tr></tbody></table>
 This is typically not used, for most use cases <a class="xref" href="Xdg.Directories.BaseDirectory.html#Xdg_Directories_BaseDirectory_ConfigHome">ConfigHome</a> should be used instead.
 </div>
 
@@ -321,7 +341,13 @@ This is typically not used, for most use cases <a class="xref" href="Xdg.Directo
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_ConfigHome_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_CONFIG_HOME</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%LOCALAPPDATA%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Library/Application Support</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/.config</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%LOCALAPPDATA%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Library/Application Support</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/.config</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -358,9 +384,15 @@ This is typically not used, for most use cases <a class="xref" href="Xdg.Directo
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_DataDirs_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_DATA_DIRS</code> is set, a list of the directories specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%APPADATA%</code>,
-			<code>%ProgramData%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>/Library/Application Support</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>/usr/local/share/</code>,
-			<code>/usr/share/</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%APPADATA%</code>,
+			<code>%ProgramData%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>/Library/Application Support</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>/usr/local/share/</code>,
+			<code>/usr/share/</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -397,7 +429,13 @@ This is typically not used, for most use cases <a class="xref" href="Xdg.Directo
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_DataHome_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_DATA_HOME</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%LOCALAPPDATA%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Library/Application Support</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/.local/share</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%LOCALAPPDATA%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Library/Application Support</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/.local/share</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -434,7 +472,13 @@ This is typically not used, for most use cases <a class="xref" href="Xdg.Directo
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_RuntimeDir_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_RUNTIME_DIR</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%LOCALAPPDATA%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Library/Application Support</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>/run/user/$UID</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%LOCALAPPDATA%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Library/Application Support</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>/run/user/$UID</code>
+		</td></tr></tbody></table>
 </div>
 
 
@@ -471,7 +515,13 @@ This is typically not used, for most use cases <a class="xref" href="Xdg.Directo
 
   <h4 class="section" id="Xdg_Directories_BaseDirectory_StateHome_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If <code>XDG_STATE_HOME</code> is set, the directory specified.</p>
-<table><tbody><tr><td class="term">Windows</td><td class="description"><code>%LOCALAPPDATA%</code></td></tr><tr><td class="term">macOS</td><td class="description"><code>$HOME/Library/Application Support</code></td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description"><code>$HOME/.local/state</code></td></tr></tbody></table>
+<table><tbody><tr><td class="term">Windows</td><td class="description">
+			<code>%LOCALAPPDATA%</code>
+		</td></tr><tr><td class="term">macOS</td><td class="description">
+			<code>$HOME/Library/Application Support</code>
+		</td></tr><tr><td class="term">Linux/FreeBSD</td><td class="description">
+			<code>$HOME/.local/state</code>
+		</td></tr></tbody></table>
 </div>
 
 
