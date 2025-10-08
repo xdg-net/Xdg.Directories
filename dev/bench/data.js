@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741282853116,
+  "lastUpdate": 1759939925310,
   "repoUrl": "https://github.com/xdg-net/Xdg.Directories",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -360,6 +360,78 @@ window.BENCHMARK_DATA = {
             "value": 310.24510179247176,
             "unit": "ns",
             "range": "± 1.6649880884548387"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "sam@samtherapy.net",
+            "name": "Sam Therapy",
+            "username": "SamTherapy"
+          },
+          "distinct": true,
+          "id": "e50f50646704f21933f40397b2a7cca32855cc45",
+          "message": "build(deps): Bump Microsoft.DotNet.ILCompiler from 9.0.2 to 9.0.3\n\nBumps [Microsoft.DotNet.ILCompiler](https://github.com/dotnet/runtime) from 9.0.2 to 9.0.3.\n- [Release notes](https://github.com/dotnet/runtime/releases)\n- [Commits](https://github.com/dotnet/runtime/compare/v9.0.2...v9.0.3)\n\n---\nupdated-dependencies:\n- dependency-name: Microsoft.DotNet.ILCompiler\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-10-08T16:06:38Z",
+          "tree_id": "484d00bfe9298b9d027fa775e9fbbe02d4df202c",
+          "url": "https://github.com/xdg-net/Xdg.Directories/commit/e50f50646704f21933f40397b2a7cca32855cc45"
+        },
+        "date": 1759939913080,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 217.2161372502645,
+            "unit": "ns",
+            "range": "± 1.2712615946057237"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 327.58447647094727,
+            "unit": "ns",
+            "range": "± 1.9816097847318057"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 995.5393382481167,
+            "unit": "ns",
+            "range": "± 3.844351361822265"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 101.13337498444777,
+            "unit": "ns",
+            "range": "± 0.19262048939074555"
+          },
+          {
+            "name": "Program+Benchmarks.DataHome",
+            "value": 703.4868387075571,
+            "unit": "ns",
+            "range": "± 8.019853713844922"
+          },
+          {
+            "name": "Program+Benchmarks.DataDirs",
+            "value": 1113.8180148216986,
+            "unit": "ns",
+            "range": "± 65.4327577868518"
+          },
+          {
+            "name": "Program+Benchmarks.DesktopDir",
+            "value": 3065.6605529785156,
+            "unit": "ns",
+            "range": "± 12.27903079654816"
+          },
+          {
+            "name": "Program+Benchmarks.Home",
+            "value": 339.16027943293255,
+            "unit": "ns",
+            "range": "± 0.9832048194894166"
           }
         ]
       }
