@@ -11,8 +11,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetFolderPath(SpecialFolder.Desktop),
-                OS.MacOS => Path.Combine(Other.Home, "Desktop"),
-                OS.UnixLike => Path.Combine(Other.Home, "Desktop"),
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Desktop"),
                 _ => string.Empty
             };
     }
@@ -24,10 +23,8 @@ public static class UserDirectory
             GetEnvironmentVariable("XDG_DOWNLOAD_DIR")
             ?? GetCurrentOperatingSystem() switch
             {
-                // TODO: Implement this ourselves because Microsoft doesn't.
-                OS.Windows => string.Empty,
-                OS.MacOS => Path.Combine(Other.Home, "Downloads"),
-                OS.UnixLike => Path.Combine(Other.Home, "Downloads"),
+                // TODO: Implement Windows case ourselves because Microsoft doesn't.
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Downloads"),
                 _ => string.Empty
             };
     }
@@ -40,8 +37,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetFolderPath(SpecialFolder.MyDocuments),
-                OS.MacOS => Path.Combine(Other.Home, "Documents"),
-                OS.UnixLike => Path.Combine(Other.Home, "Documents"),
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Documents"),
                 _ => string.Empty
             };
     }
@@ -54,8 +50,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetFolderPath(SpecialFolder.MyMusic),
-                OS.MacOS => Path.Combine(Other.Home, "Music"),
-                OS.UnixLike => Path.Combine(Other.Home, "Music"),
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Music"),
                 _ => string.Empty
             };
     }
@@ -68,8 +63,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetFolderPath(SpecialFolder.MyPictures),
-                OS.MacOS => Path.Combine(Other.Home, "Pictures"),
-                OS.UnixLike => Path.Combine(Other.Home, "Pictures"),
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Pictures"),
                 _ => string.Empty
             };
     }
@@ -96,8 +90,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetFolderPath(SpecialFolder.Templates),
-                OS.MacOS => Path.Combine(Other.Home, "Templates"),
-                OS.UnixLike => Path.Combine(Other.Home, "Templates"),
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Templates"),
                 _ => string.Empty
             };
     }
@@ -110,8 +103,7 @@ public static class UserDirectory
             ?? GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetEnvironmentVariable("PUBLIC") ?? string.Empty,
-                OS.MacOS => Path.Combine(Other.Home, "Public"),
-                OS.UnixLike => $"{Other.Home}/Public",
+                OS.MacOS or OS.UnixLike => Path.Combine(Other.Home, "Public"),
                 _ => string.Empty
             };
     }

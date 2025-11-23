@@ -58,8 +58,6 @@ public static class BaseDirectory
             GetEnvironmentVariable("XDG_BIN_HOME")
             ?? GetCurrentOperatingSystem() switch
             {
-                OS.Windows => string.Empty,
-                OS.MacOS => string.Empty,
                 OS.UnixLike => Path.Combine(Other.Home, ".local", "bin"),
                 _ => string.Empty
             };

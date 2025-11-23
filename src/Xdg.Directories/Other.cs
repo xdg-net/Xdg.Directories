@@ -10,8 +10,7 @@ public static class Other
             GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetEnvironmentVariable("USERPROFILE"),
-                OS.MacOS => GetEnvironmentVariable("HOME"),
-                OS.UnixLike => GetEnvironmentVariable("HOME"),
+                OS.MacOS or OS.UnixLike => GetEnvironmentVariable("HOME"),
                 _ => null
             }
             ?? GetFolderPath(SpecialFolder.UserProfile);
