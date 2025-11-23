@@ -6,17 +6,15 @@ public static class Other
     /// <include file='docs/Other.xml' path='docs/Home/*'/>
     public static string Home
     {
-        get
-        {
-            string? homeEnv = GetCurrentOperatingSystem() switch
+        get =>
+            GetCurrentOperatingSystem() switch
             {
                 OS.Windows => GetEnvironmentVariable("USERPROFILE"),
                 OS.MacOS => GetEnvironmentVariable("HOME"),
                 OS.UnixLike => GetEnvironmentVariable("HOME"),
                 _ => null
-            };
-            return homeEnv ?? GetFolderPath(SpecialFolder.UserProfile);
-        }
+            }
+            ?? GetFolderPath(SpecialFolder.UserProfile);
     }
 
     /// <include file='docs/Other.xml' path='docs/Applications/*'/>
