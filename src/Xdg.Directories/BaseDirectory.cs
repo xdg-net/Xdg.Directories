@@ -8,13 +8,13 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_DATA_HOME")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     => GetEnvironmentVariable("LOCALAPPDATA")
                         ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
-                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "share"),
+                OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                OS.UnixLike => Path.Combine(Other.Home, ".local", "share"),
                 _ => string.Empty
             };
     }
@@ -24,13 +24,13 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_CONFIG_HOME")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     => GetEnvironmentVariable("LOCALAPPDATA")
                         ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
-                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".config"),
+                OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                OS.UnixLike => Path.Combine(Other.Home, ".config"),
                 _ => string.Empty
             };
     }
@@ -40,13 +40,13 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_STATE_HOME")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     => GetEnvironmentVariable("LOCALAPPDATA")
                         ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
-                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "state"),
+                OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                OS.UnixLike => Path.Combine(Other.Home, ".local", "state"),
                 _ => string.Empty
             };
     }
@@ -56,11 +56,11 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_BIN_HOME")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows => string.Empty,
-                Helpers.OS.MacOS => string.Empty,
-                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "bin"),
+                OS.Windows => string.Empty,
+                OS.MacOS => string.Empty,
+                OS.UnixLike => Path.Combine(Other.Home, ".local", "bin"),
                 _ => string.Empty
             };
     }
@@ -70,9 +70,9 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_DATA_DIRS")?.Split(':')
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetEnvironmentVariable("APPDATA")
@@ -80,8 +80,8 @@ public static class BaseDirectory
                         GetEnvironmentVariable("PROGRAMDATA")
                             ?? GetFolderPath(SpecialFolder.CommonApplicationData)
                     ],
-                Helpers.OS.MacOS => ["/Library/Application Support"],
-                Helpers.OS.UnixLike => ["/usr/local/share", "/usr/share"],
+                OS.MacOS => ["/Library/Application Support"],
+                OS.UnixLike => ["/usr/local/share", "/usr/share"],
                 _ => []
             };
     }
@@ -91,9 +91,9 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_CONFIG_DIRS")?.Split(':')
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetEnvironmentVariable("ProgramData")
@@ -101,14 +101,14 @@ public static class BaseDirectory
                         GetEnvironmentVariable("APPDATA")
                             ?? GetFolderPath(SpecialFolder.ApplicationData)
                     ],
-                Helpers.OS.MacOS
+                OS.MacOS
                     =>
                     [
                         Path.Combine(Other.Home, "Library", "Preferences"),
                         "/Library/Application Support",
                         "/Library/Preferences"
                     ],
-                Helpers.OS.UnixLike => ["/etc/xdg"],
+                OS.UnixLike => ["/etc/xdg"],
                 _ => []
             };
     }
@@ -118,14 +118,14 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_CACHE_HOME")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     => GetEnvironmentVariable("LOCALAPPDATA") is not null
                         ? Path.Combine(GetEnvironmentVariable("LOCALAPPDATA")!, "cache")
                         : Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "cache"),
-                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Caches"),
-                Helpers.OS.UnixLike => Path.Combine(Other.Home, ".cache"),
+                OS.MacOS => Path.Combine(Other.Home, "Library", "Caches"),
+                OS.UnixLike => Path.Combine(Other.Home, ".cache"),
                 _ => string.Empty
             };
     }
@@ -135,13 +135,13 @@ public static class BaseDirectory
     {
         get =>
             GetEnvironmentVariable("XDG_RUNTIME_DIR")
-            ?? Helpers.GetCurrentOperatingSystem() switch
+            ?? GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     => GetEnvironmentVariable("LOCALAPPDATA")
                         ?? GetFolderPath(SpecialFolder.LocalApplicationData),
-                Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
-                Helpers.OS.UnixLike => Path.Combine("/run", "user", GetEnvironmentVariable("UID") ?? "0"),
+                OS.MacOS => Path.Combine(Other.Home, "Library", "Application Support"),
+                OS.UnixLike => Path.Combine("/run", "user", GetEnvironmentVariable("UID") ?? "0"),
                 _ => string.Empty
             };
     }

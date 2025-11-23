@@ -8,11 +8,11 @@ public static class Other
     {
         get
         {
-            string? homeEnv = Helpers.GetCurrentOperatingSystem() switch
+            string? homeEnv = GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows => GetEnvironmentVariable("USERPROFILE"),
-                Helpers.OS.MacOS => GetEnvironmentVariable("HOME"),
-                Helpers.OS.UnixLike => GetEnvironmentVariable("HOME"),
+                OS.Windows => GetEnvironmentVariable("USERPROFILE"),
+                OS.MacOS => GetEnvironmentVariable("HOME"),
+                OS.UnixLike => GetEnvironmentVariable("HOME"),
                 _ => null
             };
             return homeEnv ?? GetFolderPath(SpecialFolder.UserProfile);
@@ -23,16 +23,16 @@ public static class Other
     public static IList<string> Applications
     {
         get =>
-            Helpers.GetCurrentOperatingSystem() switch
+            GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetFolderPath(SpecialFolder.Programs),
                         GetFolderPath(SpecialFolder.CommonPrograms)
                     ],
-                Helpers.OS.MacOS => ["/Applications"],
-                Helpers.OS.UnixLike
+                OS.MacOS => ["/Applications"],
+                OS.UnixLike
                     =>
                     [
                         $"{BaseDirectory.DataHome}/applications",
@@ -49,9 +49,9 @@ public static class Other
     public static IList<string> Fonts
     {
         get =>
-            Helpers.GetCurrentOperatingSystem() switch
+            GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetEnvironmentVariable("SystemRoot") is not null
@@ -61,7 +61,7 @@ public static class Other
                             ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
                             : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
                     ],
-                Helpers.OS.MacOS
+                OS.MacOS
                     =>
                     [
                         $"{Home}/Library/Fonts",
@@ -69,7 +69,7 @@ public static class Other
                         "/System/Library/Fonts",
                         "/Network/Library/Fonts"
                     ],
-                Helpers.OS.UnixLike
+                OS.UnixLike
                     =>
                     [
                         Path.Combine(BaseDirectory.DataHome, "fonts"),
