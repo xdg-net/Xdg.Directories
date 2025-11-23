@@ -39,7 +39,7 @@ public static class Other
                         "/usr/share/applications",
                         // TODO: Add $XDG_DATA_DIRS/applications
                     ],
-                _ => Array.Empty<string>()
+                _ => []
             };
     }
 
@@ -77,7 +77,7 @@ public static class Other
                         "/usr/share/fonts",
                         // TODO: Add $XDG_DATA_DIRS/fonts
                     ],
-                _ => Array.Empty<string>()
+                _ => []
             };
     }
 }
