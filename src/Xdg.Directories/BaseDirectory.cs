@@ -121,8 +121,8 @@ public static class BaseDirectory
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
-                    => GetEnvironmentVariable("LOCALAPPDATA") is not null
-                        ? Path.Combine(GetEnvironmentVariable("LOCALAPPDATA")!, "cache")
+                    => GetEnvironmentVariable("LOCALAPPDATA") is string localAppData
+                        ? Path.Combine(localAppData, "cache")
                         : Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "cache"),
                 Helpers.OS.MacOS => Path.Combine(Other.Home, "Library", "Caches"),
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".cache"),
