@@ -1,3 +1,7 @@
+#if NETSTANDARD
+using System.Runtime.InteropServices;
+#endif
+
 namespace Xdg.Directories;
 
 static internal class Helpers
