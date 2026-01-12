@@ -54,11 +54,11 @@ public static class Other
                 Helpers.OS.Windows
                     =>
                     [
-                        GetEnvironmentVariable("SystemRoot") is not null
-                            ? $"{GetEnvironmentVariable("SystemRoot")}\\Fonts"
+                        GetEnvironmentVariable("SystemRoot") is string systemRoot
+                            ? $"{systemRoot}\\Fonts"
                             : GetFolderPath(SpecialFolder.Fonts),
-                        GetEnvironmentVariable("LOCALAPPDATA") is not null
-                            ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
+                        GetEnvironmentVariable("LOCALAPPDATA") is string localAppData
+                            ? $"{localAppData}\\Microsoft\\Windows\\Fonts"
                             : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
                     ],
                 Helpers.OS.MacOS
