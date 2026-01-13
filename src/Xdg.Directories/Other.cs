@@ -6,33 +6,30 @@ public static class Other
     /// <include file='docs/Other.xml' path='docs/Home/*'/>
     public static string Home
     {
-        get
-        {
-            string? homeEnv = Helpers.GetCurrentOperatingSystem() switch
+        get =>
+            GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows => GetEnvironmentVariable("USERPROFILE"),
-                Helpers.OS.MacOS => GetEnvironmentVariable("HOME"),
-                Helpers.OS.UnixLike => GetEnvironmentVariable("HOME"),
+                OS.Windows => GetEnvironmentVariable("USERPROFILE"),
+                OS.MacOS or OS.UnixLike => GetEnvironmentVariable("HOME"),
                 _ => null
-            };
-            return homeEnv ?? GetFolderPath(SpecialFolder.UserProfile);
-        }
+            }
+            ?? GetFolderPath(SpecialFolder.UserProfile);
     }
 
     /// <include file='docs/Other.xml' path='docs/Applications/*'/>
     public static IList<string> Applications
     {
         get =>
-            Helpers.GetCurrentOperatingSystem() switch
+            GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetFolderPath(SpecialFolder.Programs),
                         GetFolderPath(SpecialFolder.CommonPrograms)
                     ],
-                Helpers.OS.MacOS => ["/Applications"],
-                Helpers.OS.UnixLike
+                OS.MacOS => ["/Applications"],
+                OS.UnixLike
                     =>
                     [
                         $"{BaseDirectory.DataHome}/applications",
@@ -41,7 +38,7 @@ public static class Other
                         "/usr/share/applications",
                         // TODO: Add $XDG_DATA_DIRS/applications
                     ],
-                _ => Array.Empty<string>()
+                _ => []
             };
     }
 
@@ -49,9 +46,9 @@ public static class Other
     public static IList<string> Fonts
     {
         get =>
-            Helpers.GetCurrentOperatingSystem() switch
+            GetCurrentOperatingSystem() switch
             {
-                Helpers.OS.Windows
+                OS.Windows
                     =>
                     [
                         GetEnvironmentVariable("SystemRoot") is not null
@@ -61,7 +58,7 @@ public static class Other
                             ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
                             : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
                     ],
-                Helpers.OS.MacOS
+                OS.MacOS
                     =>
                     [
                         $"{Home}/Library/Fonts",
@@ -69,7 +66,7 @@ public static class Other
                         "/System/Library/Fonts",
                         "/Network/Library/Fonts"
                     ],
-                Helpers.OS.UnixLike
+                OS.UnixLike
                     =>
                     [
                         Path.Combine(BaseDirectory.DataHome, "fonts"),
@@ -79,7 +76,7 @@ public static class Other
                         "/usr/share/fonts",
                         // TODO: Add $XDG_DATA_DIRS/fonts
                     ],
-                _ => Array.Empty<string>()
+                _ => []
             };
     }
 }
