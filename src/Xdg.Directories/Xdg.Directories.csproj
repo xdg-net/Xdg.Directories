@@ -57,7 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup Label="NuGet Packages">
-		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="9.0.1" />
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.7" />
 		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="10.0.203" PrivateAssets="all" />
 		<SourceLinkGiteaHost Include="git.froth.zone" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.203" PrivateAssets="all" />
