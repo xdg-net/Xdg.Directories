@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - uses: actions/cache@v6
@@ -44,7 +44,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
       - uses: actions/cache@v6
         with:
           path: ~/.nuget/packages
@@ -70,7 +70,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
       - uses: actions/cache@v6
         with:
           path: ~/.nuget/packages
