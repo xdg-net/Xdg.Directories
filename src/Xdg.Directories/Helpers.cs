@@ -58,7 +58,7 @@ static internal class Helpers
     internal static string CreateIfNotExists(string ours, string theirs)
     {
         var dir = Path.Combine(ours, theirs);
-        try { Directory.CreateDirectory(Path.GetDirectoryName(dir)); }
+        try { Directory.CreateDirectory(Path.GetDirectoryName(dir)?? "I WILL THROW"); }
         catch { throw; }
         return dir;
     }
