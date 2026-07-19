@@ -76,6 +76,17 @@
 			</list>
 		</remarks>
 	</DataHome>
+	<DataFile>
+		<summary>
+			Location for a data file, following XDG best practices.
+
+			If the directory specified does not exist, it will be created.
+			If the directory cannot be created, the exception will be passed up in a stacktrace perserving way.
+		</summary>
+		<param name="relPath">The name of the data file, and (optionally) the parent directories.</param>
+		<returns>A suitable location for the specified data file.</returns>
+		<inheritdoc cref="Helpers.CreateIfNotExists(string, string)"/>
+	</DataFile>
 	<ConfigHome>
 		<summary>
 			Base directory for configuration files.
@@ -108,6 +119,17 @@
 			</list>
 		</remarks>
 	</ConfigHome>
+	<ConfigFile>
+		<summary>
+			Location for a configuration file, following XDG best practices.
+			
+			If the directory specified does not exist, it will be created.
+			If the directory cannot be created, the exception will be passed up in a stacktrace perserving way.
+		</summary>
+		<param name="relPath">The name of the config file, and (optionally) the parent directories.</param>
+		<returns>A suitable location for the specified config file.</returns>
+		<inheritdoc cref="Helpers.CreateIfNotExists(string, string)"/>
+	</ConfigFile>
 	<StateHome>
 		<summary>
 			Base directory for state data.
@@ -140,6 +162,17 @@
 			</list>
 		</remarks>
 	</StateHome>
+	<StateFile>
+		<summary>
+			Location for a state file, following XDG best practices.
+
+			If the directory specified does not exist, it will be created.
+			If the directory cannot be created, the exception will be passed up in a stacktrace perserving way.
+		</summary>
+		<param name="relPath">The name of the state file, and (optionally) the parent directories.</param>
+		<returns>A suitable location for the specified state file.</returns>
+		<inheritdoc cref="Helpers.CreateIfNotExists(string, string)"/>
+	</StateFile>
 	<BinHome>
 		<summary>
 			Base directory for executable files.
@@ -177,6 +210,17 @@
 			NOTE: This is not an XDG standard but a <em>de facto</em> standard.
 		</remarks>
 	</BinHome>
+	<BinFile>
+		<summary>
+			Location for a binary file, following XDG best practices.
+
+			If the directory specified does not exist, it will be created.
+			If the directory cannot be created, the exception will be passed up in a stacktrace perserving way.
+		</summary>
+		<param name="relPath">The name of the binary file, and (optionally) the parent directories.</param>
+		<returns>A suitable location for the specified binary file.</returns>
+		<inheritdoc cref="Helpers.CreateIfNotExists(string, string)"/>
+	</BinFile>
 	<DataDirs>
 		<summary>
 			A list of directories to search for data files.
@@ -279,6 +323,17 @@
 			</list>
 		</remarks>
 	</CacheHome>
+	<CacheFile>
+		<summary>
+			Location for a cache file, following XDG best practices.
+
+			If the directory specified does not exist, it will be created.
+			If the directory cannot be created, the exception will be passed up in a stacktrace perserving way.
+		</summary>
+		<param name="relPath">The name of the cache file, and (optionally) the parent directories.</param>
+		<returns>A suitable location for the specified cache file.</returns>
+		<inheritdoc cref="Helpers.CreateIfNotExists(string, string)"/>
+	</CacheFile>
 	<RuntimeDir>
 		<summary>
 			Base directory for runtime-specific files.

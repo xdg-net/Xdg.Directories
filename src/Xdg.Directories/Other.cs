@@ -20,66 +20,58 @@ public static class Other
     }
 
     /// <include file='docs/Other.xml' path='docs/Applications/*'/>
-    public static IList<string> Applications
+    public static IList<string> Applications => Helpers.GetCurrentOperatingSystem() switch
     {
-        get =>
-            Helpers.GetCurrentOperatingSystem() switch
-            {
-                Helpers.OS.Windows
-                    =>
-                    [
-                        GetFolderPath(SpecialFolder.Programs),
+        Helpers.OS.Windows
+            =>
+            [
+                GetFolderPath(SpecialFolder.Programs),
                         GetFolderPath(SpecialFolder.CommonPrograms)
-                    ],
-                Helpers.OS.MacOS => ["/Applications"],
-                Helpers.OS.UnixLike
-                    =>
-                    [
-                        $"{BaseDirectory.DataHome}/applications",
+            ],
+        Helpers.OS.MacOS => ["/Applications"],
+        Helpers.OS.UnixLike
+            =>
+            [
+                $"{BaseDirectory.DataHome}/applications",
                         $"{Home}/.local/share/applications",
                         "/usr/local/share/applications",
                         "/usr/share/applications",
-                        // TODO: Add $XDG_DATA_DIRS/applications
-                    ],
-                _ => Array.Empty<string>()
-            };
-    }
+                // TODO: Add $XDG_DATA_DIRS/applications
+            ],
+        _ => Array.Empty<string>()
+    };
 
     /// <include file='docs/Other.xml' path='docs/Fonts/*'/>
-    public static IList<string> Fonts
+    public static IList<string> Fonts => Helpers.GetCurrentOperatingSystem() switch
     {
-        get =>
-            Helpers.GetCurrentOperatingSystem() switch
-            {
-                Helpers.OS.Windows
-                    =>
-                    [
-                        GetEnvironmentVariable("SystemRoot") is not null
+        Helpers.OS.Windows
+            =>
+            [
+                GetEnvironmentVariable("SystemRoot") is not null
                             ? $"{GetEnvironmentVariable("SystemRoot")}\\Fonts"
                             : GetFolderPath(SpecialFolder.Fonts),
                         GetEnvironmentVariable("LOCALAPPDATA") is not null
                             ? $"{GetEnvironmentVariable("LOCALAPPDATA")}\\Microsoft\\Windows\\Fonts"
                             : $"{GetFolderPath(SpecialFolder.LocalApplicationData)}\\Microsoft\\Windows\\Fonts"
-                    ],
-                Helpers.OS.MacOS
-                    =>
-                    [
-                        $"{Home}/Library/Fonts",
+            ],
+        Helpers.OS.MacOS
+            =>
+            [
+                $"{Home}/Library/Fonts",
                         "/Library/Fonts",
                         "/System/Library/Fonts",
                         "/Network/Library/Fonts"
-                    ],
-                Helpers.OS.UnixLike
-                    =>
-                    [
-                        Path.Combine(BaseDirectory.DataHome, "fonts"),
+            ],
+        Helpers.OS.UnixLike
+            =>
+            [
+                Path.Combine(BaseDirectory.DataHome, "fonts"),
                         Path.Combine(Home, ".fonts"),
                         Path.Combine(Home, ".local", "share", "fonts"),
                         "/usr/local/share/fonts",
                         "/usr/share/fonts",
-                        // TODO: Add $XDG_DATA_DIRS/fonts
-                    ],
-                _ => Array.Empty<string>()
-            };
-    }
+                // TODO: Add $XDG_DATA_DIRS/fonts
+            ],
+        _ => Array.Empty<string>()
+    };
 }

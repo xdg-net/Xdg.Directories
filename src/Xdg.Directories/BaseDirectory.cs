@@ -4,10 +4,7 @@ namespace Xdg.Directories;
 public static class BaseDirectory
 {
     /// <include file='docs/BaseDirectory.xml' path='docs/DataHome/*'/>
-    public static string DataHome
-    {
-        get =>
-            GetEnvironmentVariable("XDG_DATA_HOME")
+    public static string DataHome => GetEnvironmentVariable("XDG_DATA_HOME")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -17,13 +14,12 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "share"),
                 _ => string.Empty
             };
-    }
+
+    /// <include file="docs/BaseDirectory.xml" path="docs/DataFile/*"/>
+    public static string DataFile(string relPath) => Helpers.CreateIfNotExists(DataHome, relPath);
 
     /// <include file='docs/BaseDirectory.xml' path='docs/ConfigHome/*'/>
-    public static string ConfigHome
-    {
-        get =>
-            GetEnvironmentVariable("XDG_CONFIG_HOME")
+    public static string ConfigHome => GetEnvironmentVariable("XDG_CONFIG_HOME")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -33,13 +29,12 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".config"),
                 _ => string.Empty
             };
-    }
+
+    /// <include file="docs/BaseDirectory.xml" path="docs/ConfigFile/*"/>
+    public static string ConfigFile(string relPath) => Helpers.CreateIfNotExists(ConfigHome, relPath);
 
     /// <include file='docs/BaseDirectory.xml' path='docs/StateHome/*'/>
-    public static string StateHome
-    {
-        get =>
-            GetEnvironmentVariable("XDG_STATE_HOME")
+    public static string StateHome => GetEnvironmentVariable("XDG_STATE_HOME")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -49,13 +44,12 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "state"),
                 _ => string.Empty
             };
-    }
+
+    /// <include file="docs/BaseDirectory.xml" path="docs/StateFile/*"/>
+    public static string StateFile(string relPath) => Helpers.CreateIfNotExists(StateHome, relPath);
 
     /// <include file='docs/BaseDirectory.xml' path='docs/BinHome/*'/>
-    public static string BinHome
-    {
-        get =>
-            GetEnvironmentVariable("XDG_BIN_HOME")
+    public static string BinHome => GetEnvironmentVariable("XDG_BIN_HOME")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows => string.Empty,
@@ -63,13 +57,12 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".local", "bin"),
                 _ => string.Empty
             };
-    }
+
+    /// <include file="docs/BaseDirectory.xml" path="docs/BinFile/*"/>
+    public static string BinFile(string relPath) => Helpers.CreateIfNotExists(StateHome, relPath);
 
     /// <include file='docs/BaseDirectory.xml' path='docs/DataDirs/*'/>
-    public static IList<string> DataDirs
-    {
-        get =>
-            GetEnvironmentVariable("XDG_DATA_DIRS")?.Split(':')
+    public static IList<string> DataDirs => GetEnvironmentVariable("XDG_DATA_DIRS")?.Split(':')
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -84,13 +77,9 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => ["/usr/local/share", "/usr/share"],
                 _ => []
             };
-    }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/ConfigDirs/*'/>
-    public static IList<string> ConfigDirs
-    {
-        get =>
-            GetEnvironmentVariable("XDG_CONFIG_DIRS")?.Split(':')
+    public static IList<string> ConfigDirs => GetEnvironmentVariable("XDG_CONFIG_DIRS")?.Split(':')
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -111,13 +100,9 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => ["/etc/xdg"],
                 _ => []
             };
-    }
 
     /// <include file='docs/BaseDirectory.xml' path='docs/CacheHome/*'/>
-    public static string CacheHome
-    {
-        get =>
-            GetEnvironmentVariable("XDG_CACHE_HOME")
+    public static string CacheHome => GetEnvironmentVariable("XDG_CACHE_HOME")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -128,13 +113,12 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine(Other.Home, ".cache"),
                 _ => string.Empty
             };
-    }
+
+    /// <include file="docs/BaseDirectory.xml" path="docs/CacheFile/*"/>
+    public static string CacheFile(string relPath) => Helpers.CreateIfNotExists(CacheHome, relPath);
 
     /// <include file='docs/BaseDirectory.xml' path='docs/RuntimeDir/*'/>
-    public static string RuntimeDir
-    {
-        get =>
-            GetEnvironmentVariable("XDG_RUNTIME_DIR")
+    public static string RuntimeDir => GetEnvironmentVariable("XDG_RUNTIME_DIR")
             ?? Helpers.GetCurrentOperatingSystem() switch
             {
                 Helpers.OS.Windows
@@ -144,5 +128,4 @@ public static class BaseDirectory
                 Helpers.OS.UnixLike => Path.Combine("/run", "user", GetEnvironmentVariable("UID") ?? "0"),
                 _ => string.Empty
             };
-    }
 }
