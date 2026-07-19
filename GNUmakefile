@@ -1,5 +1,5 @@
 DOTNET ?= dotnet
-NETVERSION ?= net8.0
+NETVERSION ?= net10.0
 
 .PHONY: publish
 publish:

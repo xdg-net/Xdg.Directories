@@ -27,19 +27,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v7
+    - name: Configure GitHub Pages
+      uses: actions/configure-pages@v5
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v6
       with:
-        dotnet-version: 8.x
+        dotnet-version: 10.x
     - run: dotnet tool update -g docfx
     - run: dotnet tool restore
     - name: Build website
       run: dotnet docfx docs/docfx.json
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
-      if: github.ref == 'refs/heads/master'
+    - name: Upload static files as artifact
+      uses: actions/upload-pages-artifact@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_site
-        keep_files: true
+        path: docs/_site/
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v5

@@ -191,6 +191,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("DesktopDir")]
         public void DesktopDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.DesktopDir);
             SetEnvironmentVariable("XDG_DESKTOP_DIR", "/");
             Assert.AreEqual("/", UserDirectory.DesktopDir);
         }
@@ -198,6 +199,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("DownloadDir")]
         public void DownloadDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.DownloadDir);
             SetEnvironmentVariable("XDG_DOWNLOAD_DIR", "/");
             Assert.AreEqual("/", UserDirectory.DownloadDir);
         }
@@ -205,6 +207,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("DocumentsDir")]
         public void DocumentsDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.DocumentsDir);
             SetEnvironmentVariable("XDG_DOCUMENTS_DIR", "/");
             Assert.AreEqual("/", UserDirectory.DocumentsDir);
         }
@@ -212,6 +215,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("MusicDir")]
         public void MusicDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.MusicDir);
             SetEnvironmentVariable("XDG_MUSIC_DIR", "/");
             Assert.AreEqual("/", UserDirectory.MusicDir);
         }
@@ -219,6 +223,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("PicturesDir")]
         public void PicturesDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.PicturesDir);
             SetEnvironmentVariable("XDG_PICTURES_DIR", "/");
             Assert.AreEqual("/", UserDirectory.PicturesDir);
         }
@@ -226,6 +231,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("VideosDir")]
         public void VideosDir_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.VideosDir);
             SetEnvironmentVariable("XDG_VIDEOS_DIR", "/");
             Assert.AreEqual("/", UserDirectory.VideosDir);
         }
@@ -233,6 +239,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("TemplatesDir")]
         public void Templates_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.TemplatesDir);
             SetEnvironmentVariable("XDG_TEMPLATES_DIR", "/");
             Assert.AreEqual("/", UserDirectory.TemplatesDir);
         }
@@ -240,6 +247,7 @@ public class UserDirectory_Test
         [TestMethod, TestCategory("PublicDir")]
         public void Public_SetEnv()
         {
+            Assert.AreNotEqual("/", UserDirectory.PublicDir);
             SetEnvironmentVariable("XDG_PUBLICSHARE_DIR", "/");
             Assert.AreEqual("/", UserDirectory.PublicDir);
         }

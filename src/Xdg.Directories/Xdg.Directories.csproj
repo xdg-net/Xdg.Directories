@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup Condition="'$(CI)' == 'true'">
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
 	<PropertyGroup Label="SDK Stuff">
-		<TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net10.0;netstandard2.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<IsPackable>true</IsPackable>
 		<IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
@@ -26,9 +26,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://xdg-net.github.io/Xdg.Directories</PackageProjectUrl>
-		<PackageTags>
-			xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
-
+		<PackageTags>xdg;base-directories;base-directory;xdg-base-directory;directory;freedesktop;cross-platform</PackageTags>
 		<RepositoryUrl>https://github.com/xdg-net/Xdg.Directories</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 
@@ -57,7 +55,7 @@
 	</ItemGroup>
 
 	<ItemGroup Label="NuGet Packages">
-		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.7" />
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.10" />
 		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="10.0.301" PrivateAssets="all" />
 		<SourceLinkGiteaHost Include="git.froth.zone" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="all" />

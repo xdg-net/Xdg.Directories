@@ -69,7 +69,7 @@ public class BaseDirectory_Test
         public void DataDirs_Windows_Default()
         {
             Helper.Prepare("XDG_DATA_DIRS", null, "Windows");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[]
                 {
                     GetEnvironmentVariable("APPDATA")!,
@@ -83,7 +83,7 @@ public class BaseDirectory_Test
         public void ConfigDirs_Windows_Default()
         {
             Helper.Prepare("XDG_CONFIG_DIRS", null, "Windows");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[]
                 {
                     GetEnvironmentVariable("PROGRAMDATA")!,
@@ -143,9 +143,8 @@ public class BaseDirectory_Test
         public void DataDirs_MacOS_Default()
         {
             Helper.Prepare("XDG_DATA_DIRS", null, "MacOS");
-            CollectionAssert.AreEqual(
-                new string[] { "/Library/Application Support" },
-                (System.Collections.ICollection)BaseDirectory.DataDirs
+            Assert.AreSequenceEqual(
+                new string[] { "/Library/Application Support" }, (System.Collections.ICollection)BaseDirectory.DataDirs
             );
         }
 
@@ -153,14 +152,13 @@ public class BaseDirectory_Test
         public void ConfigDirs_MacOS_Default()
         {
             Helper.Prepare("XDG_CONFIG_DIRS", null, "MacOS");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[]
                 {
                     $"{Other.Home}/Library/Preferences",
                     "/Library/Application Support",
                     "/Library/Preferences"
-                },
-                (System.Collections.ICollection)BaseDirectory.ConfigDirs
+                }, (System.Collections.ICollection)BaseDirectory.ConfigDirs
             );
         }
     }
@@ -214,7 +212,7 @@ public class BaseDirectory_Test
         public void DataDirs_Linux_Default()
         {
             Helper.Prepare("XDG_DATA_DIRS", null, "Linux");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[] { "/usr/local/share", "/usr/share" },
                 (System.Collections.ICollection)BaseDirectory.DataDirs
             );
@@ -224,9 +222,8 @@ public class BaseDirectory_Test
         public void ConfigDirs_Linux_Default()
         {
             Helper.Prepare("XDG_CONFIG_DIRS", null, "Linux");
-            CollectionAssert.AreEqual(
-                new string[] { "/etc/xdg" },
-                (System.Collections.ICollection)BaseDirectory.ConfigDirs
+            Assert.AreSequenceEqual(
+                new string[] { "/etc/xdg" }, (System.Collections.ICollection)BaseDirectory.ConfigDirs
             );
         }
     }
@@ -237,6 +234,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("DataHome")]
         public void DataHome_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.DataHome);
             SetEnvironmentVariable("XDG_DATA_HOME", "/");
             Assert.AreEqual("/", BaseDirectory.DataHome);
         }
@@ -244,6 +242,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("ConfigHome")]
         public void ConfigHome_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.ConfigHome);
             SetEnvironmentVariable("XDG_CONFIG_HOME", "/");
             Assert.AreEqual("/", BaseDirectory.ConfigHome);
         }
@@ -251,6 +250,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("StateHome")]
         public void StateHome_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.StateHome);
             SetEnvironmentVariable("XDG_STATE_HOME", "/");
             Assert.AreEqual("/", BaseDirectory.StateHome);
         }
@@ -258,6 +258,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("BinHome")]
         public void BinHome_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.BinHome);
             SetEnvironmentVariable("XDG_BIN_HOME", "/");
             Assert.AreEqual("/", BaseDirectory.BinHome);
         }
@@ -265,6 +266,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("CacheHome")]
         public void CacheHome_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.CacheHome);
             SetEnvironmentVariable("XDG_CACHE_HOME", "/");
             Assert.AreEqual("/", BaseDirectory.CacheHome);
         }
@@ -272,6 +274,7 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("RuntimeDir")]
         public void RuntimeDir_SetEnv()
         {
+            Assert.AreNotEqual("/", BaseDirectory.RuntimeDir);
             SetEnvironmentVariable("XDG_RUNTIME_DIR", "/");
             Assert.AreEqual("/", BaseDirectory.RuntimeDir);
         }
@@ -279,8 +282,9 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("DataDirs")]
         public void DataDirs_SetEnv()
         {
+            Assert.AreNotSequenceEqual(new string[] { "/", "/" }, BaseDirectory.DataDirs);
             SetEnvironmentVariable("XDG_DATA_DIRS", "/:/");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[] { "/", "/" },
                 (System.Collections.ICollection)BaseDirectory.DataDirs
             );
@@ -289,8 +293,9 @@ public class BaseDirectory_Test
         [TestMethod, TestCategory("DataDirs")]
         public void ConfigDirs_SetEnv()
         {
+            Assert.AreNotSequenceEqual(new string[] { "/", "/", "/" }, BaseDirectory.ConfigDirs);
             SetEnvironmentVariable("XDG_CONFIG_DIRS", "/:/:/");
-            CollectionAssert.AreEqual(
+            Assert.AreSequenceEqual(
                 new string[] { "/", "/", "/" },
                 (System.Collections.ICollection)BaseDirectory.ConfigDirs
             );
