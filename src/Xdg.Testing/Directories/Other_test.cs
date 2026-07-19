@@ -129,21 +129,6 @@ public class Other_Test
         }
 
         [TestMethod, TestCategory("Fonts")]
-        public void Fonts_Linux_Default()
-        {
-            Assert.Inconclusive("TODO: Fix this test");
-            // Helper.Prepare("DISCARD", null, "Linux");
-            // CollectionAssert.AreEquivalent(
-            //     new string[]
-            //     {
-            //         $"{BaseDirectory.DataHome}/fonts",
-            //         $"{Other.Home}/.fonts",
-            //         $"{Other.Home}/.local/share/fonts",
-            //         "/usr/local/share/fonts",
-            //         "/usr/share/fonts",
-            //     },
-            //     (System.Collections.ICollection)Other.Fonts
-            // );
-        }
+        public void Fonts_Linux_Default() => Assert.Inconclusive("TODO: Fix this test");// Helper.Prepare("DISCARD", null, "Linux");// CollectionAssert.AreEquivalent(//     new string[]//     {//         $"{BaseDirectory.DataHome}/fonts",//         $"{Other.Home}/.fonts",//         $"{Other.Home}/.local/share/fonts",//         "/usr/local/share/fonts",//         "/usr/share/fonts",//     },//     (System.Collections.ICollection)Other.Fonts// );
     }
 }

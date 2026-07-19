@@ -45,4 +45,21 @@ static internal class Helpers
         else
             return OS.Other;
     }
+
+    /// <summary>
+    /// Take a user path, attempt to create it, and return the value.
+    /// 
+    /// Throws if <c>Directory.CreateDirectory</c> throws.
+    /// </summary>
+    /// <param name="ours">Library-provided location</param>
+    /// <param name="theirs">User-provided filepath</param>
+    /// <returns>The combined path value to use, with the directory contained in created (if possible)</returns>
+    /// <inheritdoc cref="Directory.CreateDirectory(string)"/>
+    internal static string CreateIfNotExists(string ours, string theirs)
+    {
+        var dir = Path.Combine(ours, theirs);
+        try { Directory.CreateDirectory(Path.GetDirectoryName(dir)); }
+        catch { throw; }
+        return dir;
+    }
 }

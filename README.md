@@ -37,22 +37,27 @@ Preview releases are uploaded to both [GitHub packages](https://github.com/xdg-n
 
 ```cs
 using System;
+using System.IO;
 using Xdg.Directories;
 
-// Prints /home/$USER/.local/share
+// Prints the current data directory
 Console.Writeline(BaseDirectory.DataHome);
 
-// Prints /home/$USER/.cache
-Console.Writeline(BaseDirectory.CacheHome)
+// Create and open a new cache file under the "foo" directory
+FileStream file = File.Open(BaseDirectory.CacheFile("foo/bar.json"), FileMode.OpenOrCreate);
 ```
 
 ### User Directories, F\#
 
 ```fsharp
+open System.IO;
 open Xdg.Directories
 
-// Prints /home/$USER/Documents
+// Prints /home/$USER/Desktop
 printfn "%s" UserDirectory.DesktopDir
+
+// Get all of the entries in the Documents folder
+let entries = Directory.GetFileSystemEntries(UserDirectory.DocumentsDir)
 ```
 
 ## License
