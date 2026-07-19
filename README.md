@@ -50,7 +50,7 @@ FileStream file = File.Open(BaseDirectory.CacheFile("foo/bar.json"), FileMode.Op
 ### User Directories, F\#
 
 ```fsharp
-open System.IO;
+open System.IO
 open Xdg.Directories
 
 // Prints /home/$USER/Desktop
