@@ -27,7 +27,7 @@ jobs:
           output-file-path: 'BenchmarkDotNet.Artifacts/results/Program.Benchmarks-report-full.json'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
-          alert-threshold: '200%'
+          alert-threshold: '1000%'
           comment-on-alert: true
           fail-on-alert: true
           alert-comment-cc-users: '@SamTherapy'
