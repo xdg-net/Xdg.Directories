@@ -7,8 +7,8 @@ open Xdg.Directories
 #if WINDOWS
 [<SimpleJob(RuntimeMoniker.Net481)>]
 #endif
-[<SimpleJob(RuntimeMoniker.Net80, baseline=true)>]
-// [<SimpleJob(RuntimeMoniker.NativeAot80)>]
+[<SimpleJob(RuntimeMoniker.Net90, baseline=true)>]
+[<SimpleJob(RuntimeMoniker.NativeAot90)>]
 [<JsonExporterAttribute.Full>]
 type Benchmarks() =
     // Base Directory

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFrameworks>net8.0;net462</TargetFrameworks>
+		<TargetFrameworks>net10.0;net462</TargetFrameworks>
 		<IsPackable>false</IsPackable>
 		<IsPublishable>false</IsPublishable>
 		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
@@ -29,6 +29,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Xdg.Directories\Xdg.Directories.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="FSharp.Core" Version="10.1.302" />
 	</ItemGroup>
 
 </Project>

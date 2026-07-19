@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="GNUmakefile" />
+  </Folder>
+  <Project Path="src/Xdg.Benchmarks/Xdg.Benchmarks.fsproj" />
+  <Project Path="src/Xdg.Directories.FFI/Xdg.Directories.FFI.csproj" />
+  <Project Path="src/Xdg.Directories/Xdg.Directories.csproj" />
+  <Project Path="src/Xdg.Testing/Xdg.Testing.csproj" />
+</Solution>
